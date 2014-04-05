@@ -1,0 +1,3519 @@
+{
+	"height": 1052,
+	"width": 812,
+	"fields": [
+		{
+			"type": "box",
+			"name": "t",
+			"label": "t",
+			"segments": [
+				{
+					"segment_x": 320,
+					"segment_y": 340,
+					"segment_width": 100,
+					"segment_height": 30
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 70,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 90,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 110,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 130,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 150,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 170,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 190,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 210,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 230,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 250,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 70,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 90,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 110,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 130,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 150,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 170,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 190,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 210,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 230,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 250,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 70,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 90,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 110,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 130,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 150,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 170,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 190,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 210,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 230,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 250,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 70,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 90,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 110,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 130,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 150,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 170,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 190,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 210,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 230,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 250,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 70,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 90,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 110,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 130,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 150,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 170,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 190,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 210,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 230,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "a_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "a",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 250,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 440,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 460,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 480,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 500,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 520,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 540,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 560,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 580,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 600,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 620,
+					"segment_y": 150,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 440,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 460,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 480,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 500,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 520,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 540,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 560,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 580,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 600,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 620,
+					"segment_y": 170,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 440,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 460,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 480,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 500,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 520,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 540,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 560,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 580,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 600,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 620,
+					"segment_y": 190,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 440,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 460,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 480,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 500,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 520,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 540,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 560,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 580,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 600,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 620,
+					"segment_y": 210,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 440,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 460,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 480,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 500,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 520,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 540,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 560,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 580,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 600,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "tally",
+			"name": "b_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy_copy",
+			"label": "b",
+			"classifier": {
+				"classifier_height": 10,
+				"classifier_width": 10,
+				"training_data_uri": "bubbles",
+				"classification_map": {
+					"empty": false
+				},
+				"default_classification": true,
+				"advanced": {
+					"flip_training_data": false
+				}
+			},
+			"grid_values": [
+				"default_val"
+			],
+			"segments": [
+				{
+					"segment_x": 620,
+					"segment_y": 230,
+					"segment_width": 20,
+					"segment_height": 20,
+					"align_segment": false,
+					"items": [
+						{
+							"item_x": 10,
+							"item_y": 7
+						}
+					]
+				}
+			]
+		}
+	]
+}
