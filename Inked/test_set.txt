@@ -1,0 +1,6 @@
+empty_0.png
+barely_2.jpg
+empty_misaligned_2.jpg
+filled_dark_0.jpg
+partial_messy_3.jpg 
+filled_outside_black_2.png
