@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
 
 	cout << "Begin training: ";*/
 
-  dirent **list;
+  /* dirent **list;
   int n = scandir("./numbers", &list, NULL, alphasort);
   if (n < 0) {
     perror("Bad directory");
@@ -52,7 +52,7 @@ int main(int argc, char** argv) {
     while (n--) {
       printf("%s\n", list[n]->d_name);
     }
-  }
+  } */
 
 	Mat img = imread("numbers\\0_190.jpg", 1 );
 	cvtColor(img, img, CV_BGR2GRAY);	//change to gray scale?
