@@ -14,7 +14,6 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <opencv/cvwimage.h>
-//#include <opencv2/imgproc/imgproc_c.h>
 #include <vector>
 
 using namespace cv;
@@ -44,6 +43,16 @@ int main(int argc, char** argv) {
 	cout << endl;
 
 	cout << "Begin training: ";*/
+
+  dirent **list;
+  int n = scandir("./numbers", &list, NULL, alphasort);
+  if (n < 0) {
+    perror("Bad directory");
+  } else {
+    while (n--) {
+      printf("%s\n", list[n]->d_name);
+    }
+  }
 
 	Mat img = imread("numbers\\0_190.jpg", 1 );
 	cvtColor(img, img, CV_BGR2GRAY);	//change to gray scale?
