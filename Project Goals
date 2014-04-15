@@ -1,0 +1,20 @@
+
+Tentative Project Goals 
+
+April 16th - Show code that segments numbers and does feature extraction
+	
+April 23 - Initial number classification working (2-3 different classifiers, possibly using different features)
+
+April 30 - Work on initial demo for Gates Foundation (meeting 5/5)
+
+May 7 - Work on improving and comparing different number classifiers (different features, training examples etc.)
+
+May 14 - Continue with numbers and start work on improving bubble and checkbox classifiers 
+
+May 21 - Continue with numbers and work on bubble and checkbox classifiers 
+
+May 28 - Testing and evaluating of all classifiers (performance, classification time etc.)
+
+June 4 - Work on integrating code into ODK Scan phone application (evaluate performance, classification time etc.)
+
+June 11 - Deliver a working demo on the phone of classifying numbers, checkboxes, bubbles.
