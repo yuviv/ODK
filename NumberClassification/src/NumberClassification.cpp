@@ -44,30 +44,52 @@ void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int w
     guess |= segment;
   if (segment == TOP) {
     imwrite(string("./top/") + img_name, cropped);
-    cout << "Black top pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == MIDDLE) {
     imwrite(string("./middle/") + img_name, cropped);
-    cout << "Black middle pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM) {
     imwrite(string("./bottom/") + img_name, cropped);
-    cout << "Black bottom pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_LEFT) {
     imwrite(string("./top_left/") + img_name, cropped);
-    cout << "Black top_left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_RIGHT) {
     imwrite(string("./top_right/") + img_name, cropped);
-    cout << "Black top_right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM_LEFT) {
     imwrite(string("./bottom_left/") + img_name, cropped);
-    cout << "Black bottom_left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else {
     imwrite(string("./bottom_right/") + img_name, cropped);
-    cout << "Black bottom_right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
+  }
+}
+
+int predictNumber(const char& guess) {
+  printf("Guess: %x\n", guess);
+  if (!(guess ^  EIGHT_SEGMENTS)) {
+    return 8;
+  } else if (!(guess ^ ZERO_SEGMENTS)) {
+    return 0;
+  } else if (!(guess ^ NINE_SEGMENTS) || !(guess ^ NINE_SEGMENTS_PARTIAL)) {
+    return 9;
+  } else if (!(guess ^ SIX_SEGMENTS)) {
+    return 6;
+  } else if (!(guess ^ THREE_SEGMENTS)) {
+    return 3;
+  } else if (!(guess ^ TWO_SEGMENTS)) {
+    return 2;
+  } else if (!(guess ^ FIVE_SEGMENTS)) {
+    return 5;
+  } else if (!(guess ^ FOUR_SEGMENTS)) {
+    return 4;
+  } else if (!(guess ^ SEVEN_SEGMENTS)) {
+    return 7;
+  } else if (!(guess ^ ONE_SEGMENTS_LEFT) || !(guess ^ ONE_SEGMENTS_RIGHT)) {
+    return 1;
+  } else {
+    return -1;
   }
 }
 
 int main(int argc, char** argv) {
   int n;
+  int guesses = 0;
+  int correct = 0;
   struct dirent **list;
   
   n = scandir("./numbers", &list, filter, alphasort);
@@ -86,21 +108,28 @@ int main(int argc, char** argv) {
       Mat img_gray(img.size(), CV_8U);
       cvtColor(img, img_gray, CV_BGR2GRAY);
       Mat img_bin(img_gray.size(), img_gray.type());
-      threshold(img_gray, img_bin, 150, 255, THRESH_BINARY);
+      threshold(img_gray, img_bin, 160, 255, THRESH_BINARY);
       resize(img_bin, img_bin, Size(20, 30), 0, 0, INTER_AREA);
-      cout <<"Image dimensions: " << img_bin.cols << "x" << img_bin.rows << endl;
-      checkSegment(guess, TOP, img_bin, 5, 2, 9, 6, img_name);
-      checkSegment(guess, MIDDLE, img_bin, 5, 12, 9, 6, img_name);
-      checkSegment(guess, BOTTOM, img_bin, 5, 22, 9, 6, img_name);
-      checkSegment(guess, TOP_LEFT, img_bin, 2, 5, 6, 9, img_name);
-      checkSegment(guess, TOP_RIGHT, img_bin, 12, 5, 6, 9, img_name);
-      checkSegment(guess, BOTTOM_LEFT, img_bin, 2, 16, 6, 9, img_name);
-      checkSegment(guess, BOTTOM_RIGHT, img_bin, 12, 16, 6, 9, img_name);
-      vector<int> compression_params;
-      compression_params.push_back(CV_IMWRITE_PXM_BINARY);
-      imwrite(string("./bin/") + img_name, img_bin, compression_params);
+      checkSegment(guess, TOP, img_bin, 7, 2, 6, 6, img_name);
+      checkSegment(guess, MIDDLE, img_bin, 7, 12, 6, 6, img_name);
+      checkSegment(guess, BOTTOM, img_bin, 7, 22, 6, 6, img_name);
+      checkSegment(guess, TOP_LEFT, img_bin, 2, 7, 6, 6, img_name);
+      checkSegment(guess, TOP_RIGHT, img_bin, 12, 7, 6, 6, img_name);
+      checkSegment(guess, BOTTOM_LEFT, img_bin, 2, 17, 6, 6, img_name);
+      checkSegment(guess, BOTTOM_RIGHT, img_bin, 12, 17, 6, 6, img_name);
+      int n = predictNumber(guess);
+      guesses++;
+      if (n < 0) {
+        cout << "Could not predict number" << endl;
+      } else {
+        cout << "Predicted: " << n << endl;
+        if (n == img_num)
+          correct++;
+      }
     }
   }
+
+  cout << "Correctly guessed " << correct << " out of " << guesses << endl;
 
 	/*int x[] = {5, 5, 5, 0, 10, 0, 10};
 	int y[] = {0, 10, 20, 5, 5, 15, 15};*/ //for square points
