@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
       threshold(img_gray, img_bin, 150, 255, THRESH_BINARY);
       resize(img_bin, img_bin, Size(20, 30), 0, 0, INTER_AREA);
       cout <<"Image dimensions: " << img_bin.cols << "x" << img_bin.rows << endl;
-      checkSegment(guess, TOP, img_bin, 2, 2, 15, 6, img_name);
+      checkSegment(guess, TOP, img_bin, 4, 2, 11, 6, img_name);
       checkSegment(guess, MIDDLE, img_bin, 2, 12, 15, 6, img_name);
       checkSegment(guess, BOTTOM, img_bin, 2, 22, 15, 6, img_name);
       checkSegment(guess, TOP_LEFT, img_bin, 2, 2, 6, 15, img_name);
