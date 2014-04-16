@@ -20,17 +20,6 @@
 using namespace cv;
 using namespace std;
 
-vector<string> split(string s) {
-    vector<string> elems;
-    int index = s.find_first_of(" ");
-    while(s.size() > 0 && index >= 0) {
-    	elems.push_back(s.substr(0, index));
-    	s = s.substr(index + 1);
-    }
-    elems.push_back(s);
-    return elems;
-}
-
 int filter(const struct dirent *ent) {
   const char *file_name = ent->d_name;
   const char *jpeg = ".jpg";
@@ -42,54 +31,66 @@ void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int w
   Mat cropped = img(r);
   if (TOTAL_PIXELS - countNonZero(cropped) > PIXEL_THRESHOLD)
     guess |= segment;
-  if (segment == TOP) {
+  /*if (segment == TOP) {
     imwrite(string("./top/") + img_name, cropped);
+    cout << "Top pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == MIDDLE) {
     imwrite(string("./middle/") + img_name, cropped);
+    cout << "Middle pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM) {
     imwrite(string("./bottom/") + img_name, cropped);
+    cout << "Bottom pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_LEFT) {
     imwrite(string("./top_left/") + img_name, cropped);
+    cout << "Top left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_RIGHT) {
     imwrite(string("./top_right/") + img_name, cropped);
+    cout << "Top right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM_LEFT) {
     imwrite(string("./bottom_left/") + img_name, cropped);
+    cout << "Bottom left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else {
     imwrite(string("./bottom_right/") + img_name, cropped);
-  }
+    cout << "Bottom right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
+  }*/
 }
 
 int predictNumber(const char& guess) {
   printf("Guess: %x\n", guess);
-  if (!(guess ^  EIGHT_SEGMENTS)) {
-    return 8;
-  } else if (!(guess ^ ZERO_SEGMENTS)) {
-    return 0;
-  } else if (!(guess ^ NINE_SEGMENTS) || !(guess ^ NINE_SEGMENTS_PARTIAL)) {
-    return 9;
-  } else if (!(guess ^ SIX_SEGMENTS)) {
-    return 6;
-  } else if (!(guess ^ THREE_SEGMENTS)) {
-    return 3;
-  } else if (!(guess ^ TWO_SEGMENTS)) {
-    return 2;
-  } else if (!(guess ^ FIVE_SEGMENTS)) {
-    return 5;
-  } else if (!(guess ^ FOUR_SEGMENTS)) {
-    return 4;
-  } else if (!(guess ^ SEVEN_SEGMENTS)) {
-    return 7;
-  } else if (!(guess ^ ONE_SEGMENTS_LEFT) || !(guess ^ ONE_SEGMENTS_RIGHT)) {
-    return 1;
-  } else {
-    return -1;
+  switch (guess) {
+    case EIGHT_SEGMENTS:
+      return 8;
+    case ZERO_SEGMENTS:
+      return 0;
+    case NINE_SEGMENTS:
+      return 9;
+    case NINE_SEGMENTS_PARTIAL:
+      return 9;
+    case SIX_SEGMENTS:
+      return 6;
+    case THREE_SEGMENTS:
+      return 3;
+    case TWO_SEGMENTS:
+      return 2;
+    case FIVE_SEGMENTS:
+      return 5;
+    case FOUR_SEGMENTS:
+      return 4;
+    case SEVEN_SEGMENTS:
+      return 7;
+    case ONE_SEGMENTS_LEFT:
+      return 1;
+    case ONE_SEGMENTS_RIGHT:
+      return 1;
+    default:
+      return -1;
   }
 }
 
 int main(int argc, char** argv) {
   int n;
-  int guesses = 0;
-  int correct = 0;
+  int *guesses = new int [10];
+  int *correct = new int [10];
   struct dirent **list;
   
   n = scandir("./numbers", &list, filter, alphasort);
@@ -115,21 +116,23 @@ int main(int argc, char** argv) {
       checkSegment(guess, BOTTOM, img_bin, 7, 22, 6, 6, img_name);
       checkSegment(guess, TOP_LEFT, img_bin, 2, 7, 6, 6, img_name);
       checkSegment(guess, TOP_RIGHT, img_bin, 12, 7, 6, 6, img_name);
-      checkSegment(guess, BOTTOM_LEFT, img_bin, 2, 17, 6, 6, img_name);
-      checkSegment(guess, BOTTOM_RIGHT, img_bin, 12, 17, 6, 6, img_name);
+      checkSegment(guess, BOTTOM_LEFT, img_bin, 2, 19, 6, 6, img_name);
+      checkSegment(guess, BOTTOM_RIGHT, img_bin, 12, 19, 6, 6, img_name);
       int n = predictNumber(guess);
-      guesses++;
+      guesses[img_num]++;
       if (n < 0) {
         cout << "Could not predict number" << endl;
       } else {
         cout << "Predicted: " << n << endl;
         if (n == img_num)
-          correct++;
+          correct[n]++;
       }
     }
   }
 
-  cout << "Correctly guessed " << correct << " out of " << guesses << endl;
+  for (int i = 0; i < 10; i++) {
+    cout << "Correctly guessed " << correct[i] << " out of " << guesses[i] << " instances of " << i << endl;
+  }
 
 	/*int x[] = {5, 5, 5, 0, 10, 0, 10};
 	int y[] = {0, 10, 20, 5, 5, 15, 15};*/ //for square points
