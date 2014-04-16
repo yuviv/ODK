@@ -90,12 +90,12 @@ int main(int argc, char** argv) {
       resize(img_bin, img_bin, Size(20, 30), 0, 0, INTER_AREA);
       cout <<"Image dimensions: " << img_bin.cols << "x" << img_bin.rows << endl;
       checkSegment(guess, TOP, img_bin, 5, 2, 9, 6, img_name);
-      checkSegment(guess, MIDDLE, img_bin, 2, 12, 15, 6, img_name);
-      checkSegment(guess, BOTTOM, img_bin, 2, 22, 15, 6, img_name);
-      checkSegment(guess, TOP_LEFT, img_bin, 2, 2, 6, 15, img_name);
-      checkSegment(guess, TOP_RIGHT, img_bin, 12, 2, 6, 15, img_name);
-      checkSegment(guess, BOTTOM_LEFT, img_bin, 2, 13, 6, 15, img_name);
-      checkSegment(guess, BOTTOM_RIGHT, img_bin, 12, 13, 6, 15, img_name);
+      checkSegment(guess, MIDDLE, img_bin, 5, 12, 9, 6, img_name);
+      checkSegment(guess, BOTTOM, img_bin, 5, 22, 9, 6, img_name);
+      checkSegment(guess, TOP_LEFT, img_bin, 2, 5, 6, 9, img_name);
+      checkSegment(guess, TOP_RIGHT, img_bin, 12, 5, 6, 9, img_name);
+      checkSegment(guess, BOTTOM_LEFT, img_bin, 2, 16, 6, 9, img_name);
+      checkSegment(guess, BOTTOM_RIGHT, img_bin, 12, 16, 6, 9, img_name);
       vector<int> compression_params;
       compression_params.push_back(CV_IMWRITE_PXM_BINARY);
       imwrite(string("./bin/") + img_name, img_bin, compression_params);
