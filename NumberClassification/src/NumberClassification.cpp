@@ -42,20 +42,27 @@ void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int w
   Mat cropped = img(r);
   if (TOTAL_PIXELS - countNonZero(cropped) > PIXEL_THRESHOLD)
     guess |= segment;
-  if (segment == TOP)
+  if (segment == TOP) {
     imwrite(string("./top/") + img_name, cropped);
-  else if (segment == MIDDLE) {
+    cout << "Black top pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
+  } else if (segment == MIDDLE) {
     imwrite(string("./middle/") + img_name, cropped);
+    cout << "Black middle pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM) {
     imwrite(string("./bottom/") + img_name, cropped);
+    cout << "Black bottom pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_LEFT) {
     imwrite(string("./top_left/") + img_name, cropped);
+    cout << "Black top_left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_RIGHT) {
     imwrite(string("./top_right/") + img_name, cropped);
+    cout << "Black top_right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM_LEFT) {
     imwrite(string("./bottom_left/") + img_name, cropped);
+    cout << "Black bottom_left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else {
     imwrite(string("./bottom_right/") + img_name, cropped);
+    cout << "Black bottom_right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   }
 }
 
@@ -79,10 +86,9 @@ int main(int argc, char** argv) {
       Mat img_gray(img.size(), CV_8U);
       cvtColor(img, img_gray, CV_BGR2GRAY);
       Mat img_bin(img_gray.size(), img_gray.type());
-      threshold(img_gray, img_bin, 130, 255, THRESH_BINARY);
+      threshold(img_gray, img_bin, 150, 255, THRESH_BINARY);
       resize(img_bin, img_bin, Size(20, 30), 0, 0, INTER_AREA);
-      cout <<"Image dimensions: (" << img.rows << ", " << img.cols << ")" << endl;
-      Mat cropped;
+      cout <<"Image dimensions: " << img_bin.cols << "x" << img_bin.rows << endl;
       checkSegment(guess, TOP, img_bin, 2, 2, 15, 6, img_name);
       checkSegment(guess, MIDDLE, img_bin, 2, 12, 15, 6, img_name);
       checkSegment(guess, BOTTOM, img_bin, 2, 22, 15, 6, img_name);
@@ -93,7 +99,6 @@ int main(int argc, char** argv) {
       vector<int> compression_params;
       compression_params.push_back(CV_IMWRITE_PXM_BINARY);
       imwrite(string("./bin/") + img_name, img_bin, compression_params);
-      printf("Segments: %x\n", guess);
     }
   }
 
