@@ -1,5 +1,0 @@
-cmake_minimum_required(VERSION 2.8)
-project( NumberClassification )
-find_package( OpenCV REQUIRED )
-add_executable( NumberClassification src/NumberClassification.cpp )
-target_link_libraries( NumberClassification ${OpenCV_LIBS} )
