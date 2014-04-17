@@ -32,25 +32,25 @@ void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int w
   if (TOTAL_PIXELS - countNonZero(cropped) > PIXEL_THRESHOLD)
     guess |= segment;
   /*if (segment == TOP) {
-    imwrite(string("./top/") + img_name, cropped);
+    imwrite(string("./segments/top/") + img_name, cropped);
     cout << "Top pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == MIDDLE) {
-    imwrite(string("./middle/") + img_name, cropped);
+    imwrite(string("./segments/middle/") + img_name, cropped);
     cout << "Middle pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM) {
-    imwrite(string("./bottom/") + img_name, cropped);
+    imwrite(string("./segments/bottom/") + img_name, cropped);
     cout << "Bottom pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_LEFT) {
-    imwrite(string("./top_left/") + img_name, cropped);
+    imwrite(string("./segments/top_left/") + img_name, cropped);
     cout << "Top left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_RIGHT) {
-    imwrite(string("./top_right/") + img_name, cropped);
+    imwrite(string("./segments/top_right/") + img_name, cropped);
     cout << "Top right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM_LEFT) {
-    imwrite(string("./bottom_left/") + img_name, cropped);
+    imwrite(string("./segments/bottom_left/") + img_name, cropped);
     cout << "Bottom left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else {
-    imwrite(string("./bottom_right/") + img_name, cropped);
+    imwrite(string("./segments/bottom_right/") + img_name, cropped);
     cout << "Bottom right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   }*/
 }
@@ -133,6 +133,9 @@ int main(int argc, char** argv) {
   for (int i = 0; i < 10; i++) {
     cout << "Correctly guessed " << correct[i] << " out of " << guesses[i] << " instances of " << i << endl;
   }
+
+  delete [] guesses;
+  delete [] correct;
 
 	/*int x[] = {5, 5, 5, 0, 10, 0, 10};
 	int y[] = {0, 10, 20, 5, 5, 15, 15};*/ //for square points
