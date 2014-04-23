@@ -56,7 +56,7 @@ void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int w
 }
 
 int predictNumber(const char& guess) {
-  printf("Guess: %x\n", guess);
+  //printf("Guess: %x\n", guess);
   switch (guess) {
     case EIGHT_SEGMENTS:
       return 8;
@@ -96,7 +96,9 @@ int main(int argc, char** argv) {
   int *guesses = new int [10];
   int *correct = new int [10];
   struct dirent **list;
-  
+ 
+  cout << "Classifying using pixel thresholds (no training)" << endl;
+
   n = scandir("./numbers", &list, filter, alphasort);
   if (n < 0) {
     cerr << "ERROR: Bad directory" << endl;
@@ -105,7 +107,7 @@ int main(int argc, char** argv) {
       string img_name(list[n]->d_name);
       int img_num = img_name.at(0) - 0x30;
       char guess = 0x0;
-      cout << "Processing file for #" << img_num << ": " << img_name << endl;
+      //cout << "Processing file for #" << img_num << ": " << img_name << endl;
       Mat img = imread(string("./numbers/") + img_name, CV_LOAD_IMAGE_COLOR);
       if (img.empty()) {
         cerr << "ERROR: could not read image " << img_name << endl;
@@ -125,9 +127,9 @@ int main(int argc, char** argv) {
       int n = predictNumber(guess);
       guesses[img_num]++;
       if (n < 0) {
-        cout << "Could not predict number" << endl;
+        //cout << "Could not predict number" << endl;
       } else {
-        cout << "Predicted: " << n << endl;
+        //cout << "Predicted: " << n << endl;
         if (n == img_num)
           correct[n]++;
       }
