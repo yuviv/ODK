@@ -68,12 +68,16 @@ int predictNumber(const char& guess) {
       return 9;
     case SIX_SEGMENTS:
       return 6;
+    case SIX_SEGMENTS_PARTIAL:
+      return 6;
     case THREE_SEGMENTS:
       return 3;
     case TWO_SEGMENTS:
       return 2;
     case FIVE_SEGMENTS:
       return 5;
+    case FOUR_SEGMENTS_ERR:
+      return 4;
     case FOUR_SEGMENTS:
       return 4;
     case SEVEN_SEGMENTS:
@@ -111,13 +115,13 @@ int main(int argc, char** argv) {
       Mat img_bin(img_gray.size(), img_gray.type());
       threshold(img_gray, img_bin, 160, 255, THRESH_BINARY);
       resize(img_bin, img_bin, Size(20, 30), 0, 0, INTER_AREA);
-      checkSegment(guess, TOP, img_bin, 7, 2, 6, 6, img_name);
-      checkSegment(guess, MIDDLE, img_bin, 7, 12, 6, 6, img_name);
-      checkSegment(guess, BOTTOM, img_bin, 7, 22, 6, 6, img_name);
-      checkSegment(guess, TOP_LEFT, img_bin, 2, 7, 6, 6, img_name);
-      checkSegment(guess, TOP_RIGHT, img_bin, 12, 7, 6, 6, img_name);
-      checkSegment(guess, BOTTOM_LEFT, img_bin, 2, 19, 6, 6, img_name);
-      checkSegment(guess, BOTTOM_RIGHT, img_bin, 12, 19, 6, 6, img_name);
+      checkSegment(guess, TOP, img_bin, 9, 1, 2, 8, img_name);
+      checkSegment(guess, MIDDLE, img_bin, 9, 11, 2, 8, img_name);
+      checkSegment(guess, BOTTOM, img_bin, 9, 21, 2, 8, img_name);
+      checkSegment(guess, TOP_LEFT, img_bin, 1, 9, 8, 2, img_name);
+      checkSegment(guess, TOP_RIGHT, img_bin, 11, 9, 8, 2, img_name);
+      checkSegment(guess, BOTTOM_LEFT, img_bin, 1, 19, 8, 2, img_name);
+      checkSegment(guess, BOTTOM_RIGHT, img_bin, 11, 19, 8, 2, img_name);
       int n = predictNumber(guess);
       guesses[img_num]++;
       if (n < 0) {
@@ -130,9 +134,16 @@ int main(int argc, char** argv) {
     }
   }
 
+  int total_correct = 0;
+  int total_guesses = 0;
   for (int i = 0; i < 10; i++) {
     cout << "Correctly guessed " << correct[i] << " out of " << guesses[i] << " instances of " << i << endl;
+    total_correct += correct[i];
+    total_guesses += guesses[i];
   }
+
+  cout << "Total guessed " << total_correct << " out of " << total_guesses << endl;
+
 
   delete [] guesses;
   delete [] correct;
