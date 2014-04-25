@@ -2,3 +2,4 @@ NumberClassification
 segments/*
 .settings/*
 Debug/*
+.Thumbs.db
