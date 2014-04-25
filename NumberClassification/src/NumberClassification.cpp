@@ -31,28 +31,21 @@ void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int w
   Mat cropped = img(r);
   if (TOTAL_PIXELS - countNonZero(cropped) > PIXEL_THRESHOLD)
     guess |= segment;
-  /*if (segment == TOP) {
+  if (segment == TOP) {
     imwrite(string("./segments/top/") + img_name, cropped);
-    cout << "Top pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == MIDDLE) {
     imwrite(string("./segments/middle/") + img_name, cropped);
-    cout << "Middle pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM) {
     imwrite(string("./segments/bottom/") + img_name, cropped);
-    cout << "Bottom pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_LEFT) {
     imwrite(string("./segments/top_left/") + img_name, cropped);
-    cout << "Top left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == TOP_RIGHT) {
     imwrite(string("./segments/top_right/") + img_name, cropped);
-    cout << "Top right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else if (segment == BOTTOM_LEFT) {
     imwrite(string("./segments/bottom_left/") + img_name, cropped);
-    cout << "Bottom left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
   } else {
     imwrite(string("./segments/bottom_right/") + img_name, cropped);
-    cout << "Bottom right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
-  }*/
+  }
 }
 
 int predictNumber(const char& guess) {
@@ -127,11 +120,13 @@ int main(int argc, char** argv) {
       int n = predictNumber(guess);
       guesses[img_num]++;
       if (n < 0) {
-        //cout << "Could not predict number" << endl;
+        cout << "Could not predict number for " << img_name << endl;
       } else {
         //cout << "Predicted: " << n << endl;
         if (n == img_num)
           correct[n]++;
+        else
+          cout << "Could not predict number for " << img_name << endl;
       }
     }
   }
