@@ -107,9 +107,13 @@ int main(int argc, char** argv) {
       }
       Mat img_gray(img.size(), CV_8U);
       cvtColor(img, img_gray, CV_BGR2GRAY);
+      resize(img_gray, img_gray, Size(20, 30), 0, 0, INTER_AREA);
+      vector<Mat> channels;
+      split(img, channels);
+      int thresh = (int)mean(channels[0])[0];    
       Mat img_bin(img_gray.size(), img_gray.type());
-      threshold(img_gray, img_bin, 160, 255, THRESH_BINARY);
-      resize(img_bin, img_bin, Size(20, 30), 0, 0, INTER_AREA);
+      threshold(img_gray, img_bin, thresh, 255, THRESH_BINARY);
+      imwrite(string("./bin/") + img_name, img_bin);
       checkSegment(guess, TOP, img_bin, 9, 1, 2, 8, img_name);
       checkSegment(guess, MIDDLE, img_bin, 9, 11, 2, 8, img_name);
       checkSegment(guess, BOTTOM, img_bin, 9, 21, 2, 8, img_name);
