@@ -128,8 +128,8 @@ int main(int argc, char** argv) {
       int thresh = (int)mean(channels[0])[0];    
       Mat img_bin(img_gray.size(), img_gray.type());
       threshold(img_gray, img_bin, thresh, 255, THRESH_BINARY);
-      imwrite(string("./bin/") + img_name, img_bin);
       cleanBorder(img_bin, 20, 30);
+      imwrite(string("./bin/") + img_name, img_bin);
       checkSegment(guess, TOP, img_bin, 9, 1, 2, 8, img_name);
       checkSegment(guess, MIDDLE, img_bin, 9, 11, 2, 8, img_name);
       checkSegment(guess, BOTTOM, img_bin, 9, 21, 2, 8, img_name);
