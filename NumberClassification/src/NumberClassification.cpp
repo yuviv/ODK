@@ -91,10 +91,10 @@ int predictNumber(const char& guess) {
 void cleanBorder(Mat img_bin, int width, int height) {
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
-      if (i < 2 || i > height-3)
-        img_bin.at<uchar>(i, j, 0) = 0;
-      else if (j < 2 || j > width-3)
-        img_bin.at<uchar>(i, j, 0) = 0;
+      if (i < 1 || i > height-2)
+        img_bin.at<uchar>(i, j, 0) = 255;
+      else if (j < 1 || j > width-2)
+        img_bin.at<uchar>(i, j, 0) = 255;
     }
   }
 }
