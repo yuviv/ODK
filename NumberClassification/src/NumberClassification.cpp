@@ -21,6 +21,10 @@
 using namespace cv;
 using namespace std;
 
+const char* SEGMENT_NAMES[] = { "top", "middle", "bottom",
+                                "top_left", "top_right",
+                                "bottom_left", "bottom_right"};
+
 int filter(const struct dirent *ent) {
   const char *file_name = ent->d_name;
   const char *jpeg = ".jpg";
@@ -85,6 +89,17 @@ int predictNumber(const char& guess) {
   }
 }
 
+void cleanBorder(Mat img_bin, int width, int height) {
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      if (i < 1 || i > height-2)
+        img_bin.at<uchar>(i, j, 0) = 255;
+      else if (j < 1 || j > width-2)
+        img_bin.at<uchar>(i, j, 0) = 255;
+    }
+  }
+}
+
 int main(int argc, char** argv) {
   int n;
   int *guesses = new int [10];
@@ -114,6 +129,7 @@ int main(int argc, char** argv) {
       int thresh = (int)mean(channels[0])[0];    
       Mat img_bin(img_gray.size(), img_gray.type());
       threshold(img_gray, img_bin, thresh, 255, THRESH_BINARY);
+      cleanBorder(img_bin, 20, 30);
       imwrite(string("./bin/") + img_name, img_bin);
       checkSegment(guess, TOP, img_bin, 9, 1, 2, 8, img_name);
       checkSegment(guess, MIDDLE, img_bin, 9, 11, 2, 8, img_name);
@@ -122,7 +138,7 @@ int main(int argc, char** argv) {
       checkSegment(guess, TOP_RIGHT, img_bin, 11, 9, 8, 2, img_name);
       checkSegment(guess, BOTTOM_LEFT, img_bin, 1, 19, 8, 2, img_name);
       checkSegment(guess, BOTTOM_RIGHT, img_bin, 11, 19, 8, 2, img_name);
-      int n = predictNumber(guess);
+      int n = predictNumber(guess);      
       guesses[img_num]++;
       if (n < 0) {
         cout << "Could not predict number for " << img_name << endl;
@@ -135,6 +151,24 @@ int main(int argc, char** argv) {
       }
     }
   }
+  /*n = scandir("./numbers", &list, filter, alphasort);
+  if (n < 0) {
+    cerr << "ERROR: Bad directory" << endl;
+  } else {
+    for (int i = 0; i < N_SEGMENT_TYPES; i++) {
+      string dir_name = string("./segments/") + SEGMENT_NAMES[i] + "/";
+      for (int j = 0; j < n; j++) {
+        string img_name(list[j]->d_name);
+        int img_num = img_name.at(0) - 0x30;
+        cout << "Processing file for #" << img_num << ": " << dir_name + img_name << endl;
+        Mat img = imread(dir_name + img_name, CV_LOAD_IMAGE_COLOR);
+        if (img.empty()) {
+          cerr << "ERROR: could not read image " << img_name << endl;
+        }
+      }
+    }
+
+  }*/
 
   int total_correct = 0;
   int total_guesses = 0;
@@ -149,94 +183,6 @@ int main(int argc, char** argv) {
 
   delete [] guesses;
   delete [] correct;
-
-	/*int x[] = {5, 5, 5, 0, 10, 0, 10};
-	int y[] = {0, 10, 20, 5, 5, 15, 15};*/ //for square points
-
-	//Diamond points: (10, 0) (5, 5) (15, 5) (10, 10)
-	/*Point2f p1(10.0f, 0.0f);
-	Point2f p2(5.0f, 5.0f);
-	Point2f p3(15.0f, 5.0f);
-	Point2f p4(10.0f, 10.0f);
-	Point2f x[] = {p1, p2, p3, p4};
-	vector<Point2f> pts(x, x + sizeof x / sizeof x[0]);
-*/
-	/*for (int i = 0; i < 1; i++) {
-		stringstream ss;
-		ss << "cropped\\0_190_" << i << ".jpg";
-		Mat cropped;
-		//Rect r(x[i], y[i], 10, 10);	//TODO: crop diamonds?
-		cropped = img(r);
-
-		Mat pts;
-		//Get rectangle from set of points
-		RotatedRect rdt(Point2f(10, 10), Size2f(7.07, 7.07), 45);//minAreaRect(pts);
-
-		//Calculate rotation matrix
-		Scalar sc(0);
-		Mat M = getRotationMatrix2D(rdt.center, rdt.angle, 1);
-
-		//Perform rotation
-		warpAffine(img, cropped, M, img.size(), INTER_LINEAR, BORDER_CONSTANT, sc);
-		//image = clusterImage;
-
-		cout << ss.str() << ", ";
-		imwrite(ss.str(), cropped);
-
-	}
-
-	waitKey(0);
-*/
-	/*
-	Ptr<Inked_Classifier> classifier = Ptr<Inked_Classifier>(new Inked_Classifier);
-	Size exampleSize = Size(50, 50);
-	int eigenValue = argc - 1;	//should this be number of eigenvectors? argc - 1?
-	bool flipExamples = false;
-
-	bool success = classifier->train_classifier(filepaths, exampleSize, eigenValue, flipExamples);
-	if (success) {
-		cout << "successfully trained" << endl;
-
-		cout << "Test set:" << endl;
-		ifstream test_set;
-		test_set.open("test_set.txt");
-		if (test_set.is_open()) {
-			string line;
-			int total = 0;
-			int passed = 0;
-			while(getline(test_set, line)) {
-				//print out expected classification
-				int nameIdx = line.find_last_of("\\");
-				string filename = line.substr(nameIdx + 1, line.size() - nameIdx);
-				string expected_class = filename.substr(0, filename.find_first_of("_"));
-				cout << "expected: " << expected_class << ", ";
-				total++;
-
-				Mat testItem = imread("bubbles\\" + line);
-				Mat gray_img;
-				cvtColor(testItem, gray_img, CV_BGR2GRAY);
-				Point location(25,25);
-				string actual_class = classifier->classify_item(gray_img, location);
-				cout << "actual: " << actual_class << ", ";
-
-				if (expected_class.compare(actual_class) == 0) {
-					cout << "PASS!" << endl;
-					passed++;
-				} else {
-					cout << "FAIL" << endl;
-				}
-			}
-			test_set.close();
-			double perc_correct = 100.0* passed / total;
-			cout << "Correct " << passed << " out of " << total << endl;
-			cout << perc_correct << "% correct" << endl;
-		} else {
-			cout << "unable to open file";
-		}
-	} else {
-		cout << "training failed" << endl;
-	}
-	*/
 
 	return 0;
 }
