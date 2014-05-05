@@ -1,0 +1,13 @@
+Classifying using PCA on entire number (no segmentation)
+Correctly guessed 9 out of 10 instances of 0
+Correctly guessed 8 out of 9 instances of 1
+Correctly guessed 3 out of 8 instances of 2
+Correctly guessed 7 out of 11 instances of 3
+Correctly guessed 10 out of 13 instances of 4
+Correctly guessed 5 out of 12 instances of 5
+Correctly guessed 7 out of 12 instances of 6
+Correctly guessed 10 out of 10 instances of 7
+Correctly guessed 3 out of 16 instances of 8
+Correctly guessed 9 out of 12 instances of 9
+Correct 71 out of 113
+62.8319% correct
