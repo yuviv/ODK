@@ -1,4 +1,4 @@
-#include "NumberClassification.h"
+#include "VivNumberClassification.h"
 #include <iostream>
 #include <fstream>
 #include <opencv/cv.h>
@@ -26,68 +26,6 @@ int filter(const struct dirent *ent) {
   const char *jpeg = ".jpg";
   return !!strstr(file_name, jpeg);
 }
-
-void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int width, int height, string img_name) {
-  Rect r(x, y, width, height);
-  Mat cropped = img(r);
-  if (TOTAL_PIXELS - countNonZero(cropped) > PIXEL_THRESHOLD)
-    guess |= segment;
-  /*if (segment == TOP) {
-    imwrite(string("./segments/top/") + img_name, cropped);
-    cout << "Top pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
-  } else if (segment == MIDDLE) {
-    imwrite(string("./segments/middle/") + img_name, cropped);
-    cout << "Middle pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
-  } else if (segment == BOTTOM) {
-    imwrite(string("./segments/bottom/") + img_name, cropped);
-    cout << "Bottom pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
-  } else if (segment == TOP_LEFT) {
-    imwrite(string("./segments/top_left/") + img_name, cropped);
-    cout << "Top left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
-  } else if (segment == TOP_RIGHT) {
-    imwrite(string("./segments/top_right/") + img_name, cropped);
-    cout << "Top right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
-  } else if (segment == BOTTOM_LEFT) {
-    imwrite(string("./segments/bottom_left/") + img_name, cropped);
-    cout << "Bottom left pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
-  } else {
-    imwrite(string("./segments/bottom_right/") + img_name, cropped);
-    cout << "Bottom right pixels: " << TOTAL_PIXELS - countNonZero(cropped) << endl;
-  }*/
-}
-
-int predictNumber(const char& guess) {
-  printf("Guess: %x\n", guess);
-  switch (guess) {
-    case EIGHT_SEGMENTS:
-      return 8;
-    case ZERO_SEGMENTS:
-      return 0;
-    case NINE_SEGMENTS:
-      return 9;
-    case NINE_SEGMENTS_PARTIAL:
-      return 9;
-    case SIX_SEGMENTS:
-      return 6;
-    case THREE_SEGMENTS:
-      return 3;
-    case TWO_SEGMENTS:
-      return 2;
-    case FIVE_SEGMENTS:
-      return 5;
-    case FOUR_SEGMENTS:
-      return 4;
-    case SEVEN_SEGMENTS:
-      return 7;
-    case ONE_SEGMENTS_LEFT:
-      return 1;
-    case ONE_SEGMENTS_RIGHT:
-      return 1;
-    default:
-      return -1;
-  }
-}
-
 
 int windowsScandir(const char* dir, dirent ***list) {
 	int n = 0;
@@ -149,6 +87,11 @@ void PCA_SVM_Classify() {
 	if (success) {
 		cout << "successfully trained" << endl;
 
+		int *counts = new int[10];
+		int *correct = new int[10];
+		for (int i = 0; i < 10; i ++) {
+			counts[i] = correct[i] = 0;
+		}
 		cout << "Test set:" << endl;
 		ifstream test_set;
 		test_set.open("test.txt");
@@ -166,20 +109,28 @@ void PCA_SVM_Classify() {
 
 				string expected_class = line.substr(0, line.find_first_of("_"));
 				cout << "expected: " << expected_class << ", ";
+				int num = expected_class.at(0) - 0x30;
 				total++;
 
 				Point location(10, 15);
 				string actual_class = classifier->classify_item(gray_img, location);
 				cout << "actual: " << actual_class << ", ";
 
+				counts[num]++;
 				if (expected_class.compare(actual_class) == 0) {
 					cout << "PASS!" << endl;
 					passed++;
+					correct[num]++;
 				} else {
 					cout << "FAIL" << endl;
 				}
 			}
 			test_set.close();
+
+			for (int i = 0; i < 10; i++) {
+				cout << "Correctly guessed " << correct[i] << " out of " << counts[i] << " instances of " << i << endl;
+			}
+
 			double perc_correct = 100.0 * passed / total;
 			cout << "Correct " << passed << " out of " << total << endl;
 			cout << perc_correct << "% correct" << endl;
@@ -315,17 +266,67 @@ int CrawlFileTree(string rootdir, vector<string> &filenames) {
 	return CrawlFileTree(&writable[0], filenames);
 }
 
+void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int width, int height, string img_name) {
+  Rect r(x, y, width, height);
+  Mat cropped = img(r);
+  if (TOTAL_PIXELS - countNonZero(cropped) > PIXEL_THRESHOLD)
+    guess |= segment;
+  if (segment == TOP) {
+    imwrite(string("./segments/top/") + img_name, cropped);
+  } else if (segment == MIDDLE) {
+    imwrite(string("./segments/middle/") + img_name, cropped);
+  } else if (segment == BOTTOM) {
+    imwrite(string("./segments/bottom/") + img_name, cropped);
+  } else if (segment == TOP_LEFT) {
+    imwrite(string("./segments/top_left/") + img_name, cropped);
+  } else if (segment == TOP_RIGHT) {
+    imwrite(string("./segments/top_right/") + img_name, cropped);
+  } else if (segment == BOTTOM_LEFT) {
+    imwrite(string("./segments/bottom_left/") + img_name, cropped);
+  } else {
+    imwrite(string("./segments/bottom_right/") + img_name, cropped);
+  }
+}
+
+int predictNumber(const char& guess) {
+  //printf("Guess: %x\n", guess);
+  switch (guess) {
+    case EIGHT_SEGMENTS:
+      return 8;
+    case ZERO_SEGMENTS:
+      return 0;
+    case NINE_SEGMENTS:
+      return 9;
+    case NINE_SEGMENTS_PARTIAL:
+      return 9;
+    case SIX_SEGMENTS:
+      return 6;
+    case SIX_SEGMENTS_PARTIAL:
+      return 6;
+    case THREE_SEGMENTS:
+      return 3;
+    case TWO_SEGMENTS:
+      return 2;
+    case FIVE_SEGMENTS:
+      return 5;
+    case FOUR_SEGMENTS_ERR:
+      return 4;
+    case FOUR_SEGMENTS:
+      return 4;
+    case SEVEN_SEGMENTS:
+      return 7;
+    case ONE_SEGMENTS_LEFT:
+      return 1;
+    case ONE_SEGMENTS_RIGHT:
+      return 1;
+    default:
+      return -1;
+  }
+}
+
 int main(int argc, char** argv) {
 	//PCA_SVM classifier
   PCA_SVM_Classify();
-
-
-	//My attempt to scan
-
-	/*(struct dirent**) malloc(239 * sizeof(struct dirent *));
-	if (list == NULL)
-		return -1;
-	n = windowsScandir("./numbers", &list);*/
 /*
 	vector<string> filePaths;
 	CrawlFileTree("numbers", filePaths);
@@ -335,8 +336,8 @@ int main(int argc, char** argv) {
   int n = filePaths.size();
   n -= 2;
   cout << "size is " << n << endl;
-  int *guesses = new int [10];
-  int *correct = new int [10];
+  int *guesses = new int [10]();
+  int *correct = new int [10]();
   //struct dirent **list;
 
   //n = scandir("./numbers", &list, filter, alphasort);
@@ -383,95 +384,7 @@ int main(int argc, char** argv) {
 
   delete [] guesses;
   delete [] correct;
-/*
-	//old code
-	/*int x[] = {5, 5, 5, 0, 10, 0, 10};
-	int y[] = {0, 10, 20, 5, 5, 15, 15};*/ //for square points
 
-	//Diamond points: (10, 0) (5, 5) (15, 5) (10, 10)
-	/*Point2f p1(10.0f, 0.0f);
-	Point2f p2(5.0f, 5.0f);
-	Point2f p3(15.0f, 5.0f);
-	Point2f p4(10.0f, 10.0f);
-	Point2f x[] = {p1, p2, p3, p4};
-	vector<Point2f> pts(x, x + sizeof x / sizeof x[0]);
-*/
-	/*for (int i = 0; i < 1; i++) {
-		stringstream ss;
-		ss << "cropped\\0_190_" << i << ".jpg";
-		Mat cropped;
-		//Rect r(x[i], y[i], 10, 10);	//TODO: crop diamonds?
-		cropped = img(r);
-
-		Mat pts;
-		//Get rectangle from set of points
-		RotatedRect rdt(Point2f(10, 10), Size2f(7.07, 7.07), 45);//minAreaRect(pts);
-
-		//Calculate rotation matrix
-		Scalar sc(0);
-		Mat M = getRotationMatrix2D(rdt.center, rdt.angle, 1);
-
-		//Perform rotation
-		warpAffine(img, cropped, M, img.size(), INTER_LINEAR, BORDER_CONSTANT, sc);
-		//image = clusterImage;
-
-		cout << ss.str() << ", ";
-		imwrite(ss.str(), cropped);
-
-	}
-
-	waitKey(0);
-*/
-	/*
-	Ptr<PCA_SVM_Classifier> classifier = Ptr<PCA_SVM_Classifier>(new PCA_SVM_Classifier);
-	Size exampleSize = Size(50, 50);
-	int eigenValue = argc - 1;	//should this be number of eigenvectors? argc - 1?
-	bool flipExamples = false;
-
-	bool success = classifier->train_classifier(filepaths, exampleSize, eigenValue, flipExamples);
-	if (success) {
-		cout << "successfully trained" << endl;
-
-		cout << "Test set:" << endl;
-		ifstream test_set;
-		test_set.open("test_set.txt");
-		if (test_set.is_open()) {
-			string line;
-			int total = 0;
-			int passed = 0;
-			while(getline(test_set, line)) {
-				//print out expected classification
-				int nameIdx = line.find_last_of("\\");
-				string filename = line.substr(nameIdx + 1, line.size() - nameIdx);
-				string expected_class = filename.substr(0, filename.find_first_of("_"));
-				cout << "expected: " << expected_class << ", ";
-				total++;
-
-				Mat testItem = imread("bubbles\\" + line);
-				Mat gray_img;
-				cvtColor(testItem, gray_img, CV_BGR2GRAY);
-				Point location(25,25);
-				string actual_class = classifier->classify_item(gray_img, location);
-				cout << "actual: " << actual_class << ", ";
-
-				if (expected_class.compare(actual_class) == 0) {
-					cout << "PASS!" << endl;
-					passed++;
-				} else {
-					cout << "FAIL" << endl;
-				}
-			}
-			test_set.close();
-			double perc_correct = 100.0* passed / total;
-			cout << "Correct " << passed << " out of " << total << endl;
-			cout << perc_correct << "% correct" << endl;
-		} else {
-			cout << "unable to open file";
-		}
-	} else {
-		cout << "training failed" << endl;
-	}
-	*/
 
 	return 0;
-}
+}*/
