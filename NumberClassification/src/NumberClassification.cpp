@@ -17,12 +17,9 @@
 #include <opencv/cvwimage.h>
 #include <vector>
 #include <cstring>
-#include <tesseract/baseapi.h>
-#include <tesseract/strngs.h>
 
 using namespace cv;
 using namespace std;
-using namespace tesseract;
 
 const char* SEGMENT_NAMES[] = { "top", "middle", "bottom",
                                 "top_left", "top_right",
@@ -41,19 +38,19 @@ void checkSegment(char& guess, const char& segment, Mat img, int x, int y, int w
     guess |= segment;
   
   if (segment == TOP) {
-    imwrite(string("./segments/top/") + img_name, cropped);
+    imwrite(string("./natural_numbers/segments/top/") + img_name, cropped);
   } else if (segment == MIDDLE) {
-    imwrite(string("./segments/middle/") + img_name, cropped);
+    imwrite(string("./natural_numbers/segments/middle/") + img_name, cropped);
   } else if (segment == BOTTOM) {
-    imwrite(string("./segments/bottom/") + img_name, cropped);
+    imwrite(string("./natural_numbers/segments/bottom/") + img_name, cropped);
   } else if (segment == TOP_LEFT) {
-    imwrite(string("./segments/top_left/") + img_name, cropped);
+    imwrite(string("./natural_numbers/segments/top_left/") + img_name, cropped);
   } else if (segment == TOP_RIGHT) {
-    imwrite(string("./segments/top_right/") + img_name, cropped);
+    imwrite(string("./natural_numbers/segments/top_right/") + img_name, cropped);
   } else if (segment == BOTTOM_LEFT) {
-    imwrite(string("./segments/bottom_left/") + img_name, cropped);
+    imwrite(string("./natural_numbers/segments/bottom_left/") + img_name, cropped);
   } else {
-    imwrite(string("./segments/bottom_right/") + img_name, cropped);
+    imwrite(string("./natural_numbers/segments/bottom_right/") + img_name, cropped);
   }
 }
 
@@ -93,13 +90,15 @@ int predictNumber(const char& guess) {
 
 int main(int argc, char** argv) {
   int n;
-  int *guesses = new int [10];
-  int *correct = new int [10];
+  int guesses[10];
+  int correct[10];
   struct dirent **list;
  
-  cout << "Classifying using pixel thresholds (no training)" << endl;
+  cout << "Classifying original data set" << endl;
 
-  n = scandir("./numbers", &list, filter, alphasort);
+  memset(guesses, 0, sizeof(int) * 10);
+  memset(correct, 0, sizeof(int) * 10);
+  n = scandir("./natural_numbers", &list, filter, alphasort);
   if (n < 0) {
     cerr << "ERROR: Bad directory" << endl;
   } else {
@@ -108,7 +107,7 @@ int main(int argc, char** argv) {
       int img_num = img_name.at(0) - 0x30;
       char guess = 0x0;
       //cout << "Processing file for #" << img_num << ": " << img_name << endl;
-      Mat img = imread(string("./numbers/") + img_name, CV_LOAD_IMAGE_COLOR);
+      Mat img = imread(string("./natural_numbers/") + img_name, CV_LOAD_IMAGE_COLOR);
       if (img.empty()) {
         cerr << "ERROR: could not read image " << img_name << endl;
       }
@@ -120,18 +119,7 @@ int main(int argc, char** argv) {
       int thresh = (int)mean(channels[0])[0];    
       Mat img_bin(img_gray.size(), img_gray.type());
       threshold(img_gray, img_bin, thresh, 255, THRESH_BINARY);
-      imwrite(string("./bin/") + img_name, img_bin);
-      /*bitwise_not(img_bin, img_bin);
-      TessBaseAPI tess;
-      tess.Init(NULL, "eng", OEM_DEFAULT);
-      tess.SetPageSegMode(PSM_SINGLE_BLOCK);
-      tess.SetImage((uchar*)img_bin.data, img_bin.cols, img_bin.rows, 1, img_bin.cols);
-      tess.SetVariable("tessedit_char_whitelist", "0123456789");
-      
-      char* out = tess.GetUTF8Text();
-      cout << out << endl;
-    }
-  }*/
+      imwrite(string("./natural_numbers/bin/") + img_name, img_bin);
       checkSegment(guess, TOP, img_bin, 9, 1, 2, 8, img_name);
       checkSegment(guess, MIDDLE, img_bin, 9, 11, 2, 8, img_name);
       checkSegment(guess, BOTTOM, img_bin, 9, 22, 2, 8, img_name);
@@ -139,21 +127,23 @@ int main(int argc, char** argv) {
       checkSegment(guess, TOP_RIGHT, img_bin, 11, 9, 8, 2, img_name);
       checkSegment(guess, BOTTOM_LEFT, img_bin, 1, 20, 8, 2, img_name);
       checkSegment(guess, BOTTOM_RIGHT, img_bin, 11, 20, 8, 2, img_name);
-      int n = predictNumber(guess);      
+      int num = predictNumber(guess);      
       guesses[img_num]++;
-      if (n < 0) {
+      if (num < 0) {
         cout << "Could not predict number for " << img_name << endl;
         cout << "Guessed: " << (int)guess << endl;
       } else {
-        //cout << "Predicted: " << n << endl;
-        if (n == img_num)
-          correct[n]++;
+        //cout << "Predicted: " << num << endl;
+        if (num == img_num)
+          correct[num]++;
         else {
           cout << "Could not predict number for " << img_name << endl;
           cout << "Guessed: " << (int)guess << endl;
         }
       }
+      free(list[n]);
     }
+    free(list);
   }
   
   int total_correct = 0;
@@ -166,11 +156,5 @@ int main(int argc, char** argv) {
 
   cout << "Total guessed " << total_correct << " out of " << total_guesses << endl;
 
-
-  delete [] guesses;
-  delete [] correct;
-
 	return 0;
 }
-
-
