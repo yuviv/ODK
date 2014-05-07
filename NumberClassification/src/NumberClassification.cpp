@@ -111,6 +111,8 @@ int main(int argc, char** argv) {
       if (img.empty()) {
         cerr << "ERROR: could not read image " << img_name << endl;
       }
+      Rect r(2, 2, img.cols-2, img.rows-2);
+      img = img(r);
       Mat img_gray(img.size(), CV_8U);
       cvtColor(img, img_gray, CV_BGR2GRAY);
       resize(img_gray, img_gray, Size(20, 30), 0, 0, INTER_AREA);
