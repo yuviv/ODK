@@ -3,6 +3,10 @@
 FILES=./*.jpg
 for f in $FILES
 do
-  crop=`convert $f -virtual-pixel edge -fuzz 15% -trim -format '%wx%h%O' info:`
-  convert $f -crop $crop +repage $f
+  file=${f#./*}
+  num=${file:0:1}
+  out=$num'_'$RANDOM'.jpg'
+  echo $out
+  crop=`convert $f -virtual-pixel edge -fuzz 20% -trim -format '%wx%h%O' info:`
+  convert $f -crop $crop +repage $out
 done

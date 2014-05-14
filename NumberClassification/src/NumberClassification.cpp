@@ -1,4 +1,3 @@
-
 #include "NumberClassification.h"
 #include <iostream>
 #include <fstream>
@@ -20,10 +19,6 @@
 
 using namespace cv;
 using namespace std;
-
-const char* SEGMENT_NAMES[] = { "top", "middle", "bottom",
-                                "top_left", "top_right",
-                                "bottom_left", "bottom_right"};
 
 int filter(const struct dirent *ent) {
   const char *file_name = ent->d_name;
