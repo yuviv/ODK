@@ -1,0 +1,43 @@
+USING PIXEL_THRESHOLD = 600, ROI = (5, 5, 30, 30)
+
+EMPTY
+average pixels: 704.204
+min pixels: 594
+max pixels: 765
+predicted 47 correct out of 49 samples
+
+FILLED F1
+average pixels: 560.776
+min pixels: 470
+max pixels: 661
+predicted 39 correct out of 49 samples
+
+FILLED F2
+average pixels: 577.449
+min pixels: 475
+max pixels: 691
+predicted 34 correct out of 49 samples
+
+FILLED F3
+average pixels: 540.245
+min pixels: 427
+max pixels: 664
+predicted 42 correct out of 49 samples
+
+FILLED F4
+average pixels: 539.184
+min pixels: 459
+max pixels: 607
+predicted 48 correct out of 49 samples
+
+FILLED F7
+average pixels: 474.653
+min pixels: 356
+max pixels: 573
+predicted 49 correct out of 49 samples
+
+FILLED F8
+average pixels: 474.653
+min pixels: 356
+max pixels: 573
+predicted 49 correct out of 49 samples
