@@ -3,3 +3,5 @@ segments/*
 .settings/*
 Debug/*
 .Thumbs.db
+driver
+CMakeLists*
