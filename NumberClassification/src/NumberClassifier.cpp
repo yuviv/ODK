@@ -1,41 +1,50 @@
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/opencv.hpp>
 #include <opencv/cv.h>
 
 #include "NumberClassifier.h"
 
 void NumberClassifier::find_roi(int segment, int iw, int ih, int mw, int mh) {
-  int x, y;
+  int x, y,w,h;
+  w = mh;
+  h = mw;
   switch(segment) {
     case TOP:
       x = (iw / 2) - (mw / 2);
       y = (ih / 4) - (mh / 2);
+      w = mw;
+      h = mh;
       break;
     case MIDDLE:
       x = (iw / 2) - (mw / 2);
       y = (ih / 6) - (mh / 2);
+      w = mw;
+      h = mh;
       break;
     case BOTTOM:
       x = (iw / 2) - (mw / 2);
       y = 5 * (ih / 6) - (mh / 2);
+      w = mw;
+      h = mh;
       break;
     case TOP_LEFT:
-      x = (iw / 4) - (mw / 2);
-      y = (ih / 3) - (mh / 2);
+      x = (iw / 4) - (mh / 2);
+      y = (ih / 3) - (mw / 2);
       break;
     case TOP_RIGHT:
-      x = 3 * (iw / 4) - (mw / 2);
-      y = (ih / 3) - (mh / 2);
+      x = 3 * (iw / 4) - (mh / 2);
+      y = (ih / 3) - (mw / 2);
       break;
     case BOTTOM_LEFT:
-      x = (iw / 4) - (mw / 2);
-      y = 2 * (ih / 3) - (mh / 2);
+      x = (iw / 4) - (mh / 2);
+      y = 2 * (ih / 3) - (mw / 2);
       break;
     case BOTTOM_RIGHT:
-      x = 3 * (iw / 4) - (mw / 2);
-      y = 2 * (ih / 3) - (mh / 2);
+      x = 3 * (iw / 4) - (mh / 2);
+      y = 2 * (ih / 3) - (mw / 2);
       break;
   }
-  rois.at(segment) = cv::Rect(x, y, mw, mh);
+  rois.at(segment) = cv::Rect(x, y, w, h);
 }
 
 int NumberClassifier::predict_number(const char guess) {
@@ -82,11 +91,15 @@ void NumberClassifier::print_rois(void) {
 }
 
 void NumberClassifier::preproc_img(cv::Mat& img) {
-  cv::cvtColor(img, img, CV_BGR2GRAY);
-  cv::resize(img, img, cv::Size(img_w,img_h), 0, 0, cv::INTER_AREA);
+  cv::Mat img_gray = img;
+  if (img.channels() > 1)
+    cv::cvtColor(img, img_gray, CV_BGR2GRAY);
+  cv::resize(img_gray, img_gray, cv::Size(img_w,img_h), 0, 0, cv::INTER_AREA);
   std::vector<cv::Mat> channels;
   split(img, channels);
   int mean = (int)cv::mean(channels[0])[0];
   int thresh = (*t_func)(mean);
-  cv::threshold(img, img, thresh, 255, cv::THRESH_BINARY);
+  cv::Mat img_bin;
+  cv::threshold(img_gray, img_bin, thresh, 255, cv::THRESH_BINARY);
+  img = img_bin;
 }

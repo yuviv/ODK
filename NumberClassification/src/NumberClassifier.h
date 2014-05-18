@@ -14,12 +14,13 @@ typedef int (*thresh_func)(int mean);
 
 class NumberClassifier {
   protected:
-    struct dirent **num_list;
-    int n_numbers;
+    struct dirent **c_list;
+    const std::string c_dir; 
+    int c_numbers;
     int img_w;
     int img_h;
-    cv::Mat h_mask;
-    cv::Mat v_mask;
+    SegmentMask h_mask;
+    SegmentMask v_mask;
     const thresh_func t_func;
     std::vector<cv::Rect> rois;
     std::vector<int> guesses;
@@ -27,22 +28,17 @@ class NumberClassifier {
     const int total_pixels;
     NumberClassifier (const std::string classify_dir,
                       filter_func ff, mask_func mf, thresh_func tf, int iw, int ih, int mw, int mh) : 
+                                                      c_dir(classify_dir),
                                                       img_w(iw), img_h(ih),
                                                       t_func(tf),
                                                       guesses(10, 0),
                                                       correct(10, 0),
-                                                      h_mask(mw, mh, CV_8U, cv::Scalar::all(0)),
-                                                      v_mask(mh, mw, CV_8U, cv::Scalar::all(0)),
+                                                      h_mask(mf, mw, mh, HORIZONTAL_MASK),
+                                                      v_mask(mf, mh, mw, VERTICAL_MASK),
                                                       rois(NUM_SEGMENTS), total_pixels(mw * mh) {
-      n_numbers = scandir(classify_dir.c_str(), &num_list, ff, alphasort);
+      c_numbers = scandir(classify_dir.c_str(), &c_list, ff, alphasort);
       for (int i = 0; i < NUM_SEGMENTS; i++) {
         find_roi(i, iw, ih, mw, mh);
-      }
-      for (int i = 0; i < mw; i++) {
-        for (int j = 0; j < mh; j++) {
-          h_mask.at<uchar>(i, j, 0) = (*mf)(i, j, mw, mh, HORIZONTAL_MASK);
-          v_mask.at<uchar>(j, i, 0) = (*mf)(j, i, mw, mh, VERTICAL_MASK);
-        }
       }
     }
     void find_roi(int segment, int iw, int ih, int mw, int mh);

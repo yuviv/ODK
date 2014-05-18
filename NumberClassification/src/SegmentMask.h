@@ -16,7 +16,7 @@ class SegmentMask {
     mask_func func;
     cv::Mat mask;
   public:
-    SegmentMask(const mask_func mf, int w, int h, int dir) : func(mf), mask(w, h, CV_8U, cv::Scalar::all(0)) {
+    SegmentMask(const mask_func mf, int w, int h, int dir) : func(mf), mask(h, w, CV_8U, cv::Scalar::all(0)) {
       for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++) {
           mask.at<uchar>(i, j, 0) = (*func)(i, j, w, h, dir);

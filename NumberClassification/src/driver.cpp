@@ -5,8 +5,9 @@
 
 int main(int argc, char *argv[]) {
   std::cout << "Creating NonMLClassifier" << std::endl;
-  NonMLClassifier classifier("./natural_numbers", &filter, &rect_mask, &thresh, 20, 30, 2, 8, 4);
-  classifier.print_rois();
+  NonMLClassifier classifier("./natural_numbers/", &filter, &rect_mask, &thresh, 20, 30, 2, 8, 2);
+  classifier.classify_data();
+  classifier.print_results();
 }
 
 int filter(const struct dirent *ent) {
