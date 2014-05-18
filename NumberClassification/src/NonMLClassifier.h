@@ -5,9 +5,10 @@
 
 class NonMLClassifier: public NumberClassifier {
   protected:
-    void process_segment(int x, int y, int w, int h);
+    int pixel_thresh;
+    void process_segment(const cv::Mat& img, int segment, char *guess);
   public:
-    NonMLClassifier(const std::string classify_dir, filter_func ff, mask_func mf): NumberClassifier(classify_dir, ff, mf) {}
+    NonMLClassifier(const std::string classify_dir, filter_func ff, mask_func mf, thresh_func tf, int iw, int ih, int mw, int mh, int thresh): NumberClassifier(classify_dir, ff, mf, tf, iw, ih, mw, mh), pixel_thresh(thresh) {}
     void classify_data(void);
     void print_results(void);
 };

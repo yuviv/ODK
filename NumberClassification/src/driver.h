@@ -4,5 +4,7 @@
 #include <dirent.h>
 
 int filter (const struct dirent *ent);
+int rect_mask (int x, int y, int w, int h, int dir);
+int thresh(int mean);
 
 #endif //_DRIVER_H_
