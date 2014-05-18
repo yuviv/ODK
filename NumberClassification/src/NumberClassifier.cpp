@@ -84,4 +84,9 @@ void NumberClassifier::print_rois(void) {
 void NumberClassifier::preproc_img(cv::Mat& img) {
   cv::cvtColor(img, img, CV_BGR2GRAY);
   cv::resize(img, img, cv::Size(img_w,img_h), 0, 0, cv::INTER_AREA);
+  std::vector<cv::Mat> channels;
+  split(img, channels);
+  int mean = (int)cv::mean(channels[0])[0];
+  int thresh = (*t_func)(mean);
+  cv::threshold(img, img, thresh, 255, cv::THRESH_BINARY);
 }
