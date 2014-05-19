@@ -4,7 +4,6 @@
 #include <dirent.h>
 #include <vector>
 #include <string>
-#include <iostream>
 
 #include "NumberClassification.h"
 #include "SegmentMask.h"
@@ -35,11 +34,13 @@ class NumberClassifier {
                                                       correct(10, 0),
                                                       h_mask(mf, mw, mh, HORIZONTAL_MASK),
                                                       v_mask(mf, mh, mw, VERTICAL_MASK),
-                                                      rois(NUM_SEGMENTS), total_pixels(mw * mh) {
+                                                      rois(NUM_SEGMENTS), total_pixels(h_mask.get_mask_area()) {
       c_numbers = scandir(classify_dir.c_str(), &c_list, ff, alphasort);
       for (int i = 0; i < NUM_SEGMENTS; i++) {
         find_roi(i, iw, ih, mw, mh);
       }
+      h_mask.print_mask();
+      v_mask.print_mask();
     }
     void find_roi(int segment, int iw, int ih, int mw, int mh);
     int predict_number(const char guess);

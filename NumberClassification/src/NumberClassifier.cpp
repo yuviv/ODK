@@ -11,13 +11,13 @@ void NumberClassifier::find_roi(int segment, int iw, int ih, int mw, int mh) {
   switch(segment) {
     case TOP:
       x = (iw / 2) - (mw / 2);
-      y = (ih / 4) - (mh / 2);
+      y = (ih / 6) - (mh / 2);
       w = mw;
       h = mh;
       break;
     case MIDDLE:
       x = (iw / 2) - (mw / 2);
-      y = (ih / 6) - (mh / 2);
+      y = (ih / 2) - (mh / 2);
       w = mw;
       h = mh;
       break;

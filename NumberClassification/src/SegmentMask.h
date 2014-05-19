@@ -3,6 +3,7 @@
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <iostream>
 
 #include "NumberClassification.h"
 
@@ -15,17 +16,24 @@ class SegmentMask {
   protected:
     mask_func func;
     cv::Mat mask;
+    int mask_area;
   public:
     SegmentMask(const mask_func mf, int w, int h, int dir) : func(mf), mask(h, w, CV_8U, cv::Scalar::all(0)) {
+      int px;
       for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++) {
-          mask.at<uchar>(i, j, 0) = (*func)(i, j, w, h, dir);
+          px = (*func)(i, j, w, h, dir);
+          mask.at<uchar>(i, j, 0) = px;
+          if (px)
+            mask_area++;
         }
       }
     }
     const cv::Mat& get_mask(const char segment) {
       return mask;
     }
+    int get_mask_area(void) { return mask_area; }
+    void print_mask(void) { std::cout << mask << std::endl; }
 };
 
 #endif //_SEGMENT_MASK_H_
