@@ -154,7 +154,7 @@ int CrawlFileTree(string rootdir, vector<string> &filenames) {
 
 int main() {
 	vector<string> filePaths;
-	int res = CrawlFileTree("filled/f2", filePaths);
+	int res = CrawlFileTree("filled/f6", filePaths);
 	if (res == 0) {
 		cerr << "ERROR: bad directory" << endl;
 	}
