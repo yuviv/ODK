@@ -1,0 +1,111 @@
+USED PCA on training.txt, ROI = (5, 5, 30, 30)
+
+TOTAL 429 CORRECT OUT OF 441 SAMPLES (97.3 %)
+
+EMPTY
+predicted 49 correct out of 49 samples
+
+FILLED F1
+predicted 49 correct out of 49 samples
+
+FILLED F2
+predicted 45 correct out of 49 samples
+
+FILLED F3
+predicted 47 correct out of 49 samples
+
+FILLED F4
+predicted 46 correct out of 49 samples
+
+FILLED F5
+predicted 48 correct out of 49 samples
+
+FILLED F6
+predicted 47 correct out of 49 samples
+
+FILLED F7
+predicted 49 correct out of 49 samples
+
+FILLED F8
+predicted 49 correct out of 49 samples
+
+
+ROI = full (0, 0, 40, 40)
+
+TOTAL 351 CORRECT OUT OF 441 SAMPLES (79.6 %)
+
+EMPTY
+predicted 49 correct out of 49 samples
+
+FILLED F1
+predicted 43 correct out of 49 samples
+
+FILLED F2
+predicted 34 correct out of 49 samples
+
+FILLED F3
+predicted 28 correct out of 49 samples
+
+FILLED F4
+predicted 28 correct out of 49 samples
+
+FILLED F5
+predicted 41 correct out of 49 samples
+
+FILLED F6
+predicted 34 correct out of 49 samples
+
+FILLED F7
+predicted 47 correct out of 49 samples
+
+FILLED F8
+predicted 47 correct out of 49 samples
+
+
+ROI = (15, 15, 10, 10) fixed alignment issues
+
+EMPTY
+predicted 49 correct out of 49 samples
+
+FILLED F1
+predicted 42 correct out of 49 samples
+
+FILLED F2
+predicted 47 correct out of 49 samples
+
+FILLED F3
+predicted 40 correct out of 49 samples
+
+... not as good
+
+
+ROI = (5, 5, 30, 30) fixed alignment issues
+
+TOTAL 432 CORRECT OUT OF 441 SAMPLES (98.0 %)
+
+EMPTY
+predicted 49 correct out of 49 samples
+
+FILLED F1
+predicted 48 correct out of 49 samples
+
+FILLED F2
+predicted 49 correct out of 49 samples
+
+FILLED F3
+predicted 44 correct out of 49 samples
+
+FILLED F4
+predicted 48 correct out of 49 samples
+
+FILLED F5
+predicted 49 correct out of 49 samples
+
+FILLED F6
+predicted 47 correct out of 49 samples
+
+FILLED F7
+predicted 49 correct out of 49 samples
+
+FILLED F8
+predicted 49 correct out of 49 samples
