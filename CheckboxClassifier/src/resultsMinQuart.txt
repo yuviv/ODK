@@ -1,0 +1,59 @@
+USING MIN QUARTER, PIXEL_THRESHOLD = 90, ROI = (5, 5, 30, 30)
+
+TOTAL 149 CORRECT OUT OF 369 SAMPLES (40.4 %)
+
+EMPTY
+average pixels: 134.854
+min pixels: 87
+max pixels: 174
+predicted 40 correct out of 41 samples
+
+FILLED F1
+average pixels: 107.146
+min pixels: 42
+max pixels: 138
+predicted 9 correct out of 41 samples
+
+FILLED F2
+average pixels: 116.366
+min pixels: 25
+max pixels: 160
+predicted 3 correct out of 41 samples
+
+FILLED F3
+average pixels: 75.8293
+min pixels: 37
+max pixels: 110
+predicted 31 correct out of 41 samples
+
+FILLED F4
+average pixels: 77.878
+min pixels: 22
+max pixels: 134
+predicted 27 correct out of 41 samples
+
+FILLED F5
+average pixels: 80.7561
+min pixels: 5
+max pixels: 157
+predicted 23 correct out of 41 samples
+
+FILLED F6
+average pixels: 79.3659
+min pixels: 39
+max pixels: 133
+predicted 31 correct out of 41 samples
+
+FILLED F7
+average pixels: 152.659
+min pixels: 82
+max pixels: 187
+predicted 2 correct out of 41 samples
+
+FILLED F8
+average pixels: 112.463
+min pixels: 36
+max pixels: 160
+predicted 8 correct out of 41 samples
+
+

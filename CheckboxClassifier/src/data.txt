@@ -1,0 +1,72 @@
+USING PIXEL_THRESHOLD = ? WHOLE BOX
+
+EMPTY
+average pixels: 610.902
+min pixels: 395
+max pixels: 728
+
+FILLED F1
+average pixels: 580.22
+min pixels: 330
+max pixels: 691
+
+FILLED F7
+average pixels: 570.659
+min pixels: 324
+max pixels: 703
+
+
+USING MIN/MAX QUARTERS
+
+FILLED F7
+min pixels: 36
+max pixels: 205
+
+EMPTY
+min pixels: 87
+max pixels: 197
+
+USING MIN QUARTER
+
+EMPTY
+average pixels: 134.854
+min pixels: 87
+max pixels: 174
+
+FILLED F1
+average pixels: 107.146
+min pixels: 42
+max pixels: 138
+
+FILLED F2
+average pixels: 116.366
+min pixels: 25
+max pixels: 160
+
+FILLED F7
+average pixels: 112.463
+min pixels: 36
+max pixels: 160
+
+
+USING SMALL ROI
+
+EMPTY
+average pixels: 64.1463
+min pixels: 53
+max pixels: 80
+
+FILLED F7
+average pixels: 50.122
+min pixels: 8
+max pixels: 95
+
+FILLED F1
+average pixels: 53.3659
+min pixels: 17
+max pixels: 87
+
+FILLED F2
+average pixels: 61.3415
+min pixels: 3
+max pixels: 100

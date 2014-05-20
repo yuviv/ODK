@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : BubbleClassifier.cpp
+// Name        : CheckboxClassifier.cpp
 // Author      : 
 // Version     :
 // Copyright   : Your copyright notice
@@ -23,9 +23,8 @@
 #include <opencv/cvwimage.h>
 #include <vector>
 #include <cstring>
-#include <algorithm>
-#include "BubbleClassifier.h"
-#include "BubblePCA.h"
+#include "CheckboxClassifier.h"
+#include "CheckboxPCA.h"
 
 using namespace cv;
 using namespace std;
@@ -155,7 +154,14 @@ int CrawlFileTree(string rootdir, vector<string> &filenames) {
 	return CrawlFileTree(&writable[0], filenames);
 }
 
-bool trainPCA(const char *trainFile, Ptr<BubblePCA> classifier) {
+int countSegment(Mat img, int x, int y, int width, int height) {
+  Rect r(x, y, width, height);
+  Mat cropped = img(r);
+  int pixels = countNonZero(cropped);
+  return pixels;
+}
+
+bool trainPCA(const char *trainFile, Ptr<CheckboxPCA> classifier) {
 	vector<string> filepaths;
 	ifstream train_set;
 	train_set.open(trainFile);
@@ -169,10 +175,10 @@ bool trainPCA(const char *trainFile, Ptr<BubblePCA> classifier) {
 		cout << "Training on " << total << " files" << endl;
 	}
 
-	Size exampleSize = Size(10, 10); //fix this & maybe alignment errors?
+	Size exampleSize = Size(30, 30); //fix this & maybe alignment errors?
+	int x = 5;
+	int y = 5;
 	int eigenValue = filepaths.size() - 1;	//should this be number of eigenvectors? argc - 1? use 13? use 9?
-	int x = 15;
-	int y = 15;
 	bool success = classifier->train_classifier(filepaths, exampleSize, x, y, eigenValue, false);
 	cout << "training finished" << endl;
 	return success;
@@ -180,20 +186,19 @@ bool trainPCA(const char *trainFile, Ptr<BubblePCA> classifier) {
 
 int main() {
 	vector<string> filePaths;
-	int res = CrawlFileTree("filled/f3", filePaths);
+	int res = CrawlFileTree("filled/f8", filePaths);
 	if (res == 0) {
 		cerr << "ERROR: bad directory" << endl;
 	}
 
 	int n = filePaths.size() - 2;
   int sumPixels = 0;
-  int min = INT_MAX;
-  int max = INT_MIN;
-
-  int count = 0;
+  int overallMin = INT_MAX;
+  int overallMax = INT_MIN;
   int correct = 0;
+  int count = 0;
 
-  Ptr<BubblePCA> pca = Ptr<BubblePCA>(new BubblePCA);
+  Ptr<CheckboxPCA> pca = Ptr<CheckboxPCA>(new CheckboxPCA);
   if (USE_PCA) {
 		bool trained = trainPCA("training.txt", pca);
 		if (!trained)
@@ -202,7 +207,9 @@ int main() {
 
 	while (n--) {
 		string img_name = filePaths[n];
-		cout << "Processing file for : " << img_name << endl;
+		int img_class = img_name.at(6)- 0x30;
+		char guess = 0x0;
+		cout << "Processing file for " << img_class << ": " << img_name << endl;
 		Mat img = imread(img_name, CV_LOAD_IMAGE_COLOR);
 		if (img.empty()) {
 			cerr << "ERROR: could not read image " << img_name << endl;
@@ -210,12 +217,12 @@ int main() {
 		count++;
 		Mat img_gray(img.size(), CV_8U);
 		cvtColor(img, img_gray, CV_BGR2GRAY);
+		Rect r(5, 5, 30, 30);
+		img_gray = img_gray(r);
 
 		// PCA
 		if (USE_PCA) {
-			Rect r(15, 15, 10, 10);
-			img_gray = img_gray(r);
-			Point loc(5, 5);
+			Point loc(15, 15);
 			string predicted_class = pca->classify_item(img_gray, loc);
 			if (predicted_class.compare("filled") == 0) {
 				correct++;
@@ -225,12 +232,30 @@ int main() {
 			}
 		} else {
 			// THRESHOLDING
-			Rect r(15, 15, 10, 10);
-			img_gray = img_gray(r);
 			Mat img_bin(img_gray.size(), img_gray.type());
 			threshold(img_gray, img_bin, 160, 255, THRESH_BINARY);
-			int pixels = countNonZero(img_bin);
-			cout << pixels << " pixels filled" << endl;
+			/*string bin_name = string("empty/bin/") + img_name.substr(6);
+			imwrite(bin_name, img_bin);*/
+
+			//int pixels = countNonZero(img_bin);
+
+			int currMin = countSegment(img_bin, 0, 0, 15, 15);
+			int currMax = currMin;
+			int pixels = countSegment(img_bin, 15, 0, 15, 15);
+			currMin = min(currMin, pixels);
+			currMax = max(currMax, pixels);
+			pixels = countSegment(img_bin, 0, 15, 15, 15);
+			currMin = min(currMin, pixels);
+			currMax = max(currMax, pixels);
+			pixels = countSegment(img_bin, 15, 15, 15, 15);
+			currMin = min(currMin, pixels);
+			currMax = max(currMax, pixels);
+
+			pixels = currMin;
+			sumPixels += pixels;
+			overallMin = min(overallMin, pixels);
+			overallMax = max(overallMax, pixels);
+			cout << "  " << pixels << " pixels filled" << endl;
 
 			if (pixels < PIXEL_THRESHOLD) {
 				cout << "  FILLED" << endl;
@@ -238,16 +263,13 @@ int main() {
 			} else {
 				cout << "  EMPTY -- FAILED" << endl;
 			}
-			sumPixels += pixels;
-			min = std::min(min, pixels);
-			max = std::max(max, pixels);
 		}
 	}
 
 	double average = (double) sumPixels / (filePaths.size() - 2);
 	cout << "average pixels: " << average << endl;
-	cout << "min pixels: " << min << endl;
-	cout << "max pixels: " << max << endl;
+	cout << "min pixels: " << overallMin << endl;
+	cout << "max pixels: " << overallMax << endl;
 
 	cout << "predicted " << correct << " correct out of " << count << " samples" << endl;
 
