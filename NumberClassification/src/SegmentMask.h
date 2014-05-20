@@ -22,7 +22,7 @@ class SegmentMask {
       int px;
       for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++) {
-          px = (*func)(i, j, w, h, dir);
+          px = (*func)(j, i, w, h, dir);
           mask.at<uchar>(i, j, 0) = px;
           if (px)
             mask_area++;
