@@ -20,6 +20,7 @@ class SegmentMask {
   public:
     SegmentMask(const mask_func mf, int w, int h, int dir) : func(mf), mask(h, w, CV_8U, cv::Scalar::all(0)) {
       int px;
+      mask_area = 0;
       for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++) {
           px = (*func)(j, i, w, h, dir);

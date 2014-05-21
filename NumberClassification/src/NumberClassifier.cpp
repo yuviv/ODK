@@ -125,8 +125,7 @@ void NumberClassifier::classify(void) {
             std::cerr << "Image not loaded" << std::endl;
         else {
             pre_process(img);
-            char seg_bits = c_process(img);
-            int guess = predict_number(seg_bits);
+            int guess = c_process(img);
             if (img_num == guess)
                 correct.at(img_num)++;
             guesses.at(img_num)++;
@@ -134,4 +133,14 @@ void NumberClassifier::classify(void) {
         delete c_list[n];
     }
     delete c_list;
+}
+
+int NumberClassifier::get_black_pixels(const cv::Mat& img, int segment) {
+    cv::Mat img_segment = img(rois.at(segment));
+    if ((1 << segment) & (TOP_BIT | MIDDLE_BIT | BOTTOM_BIT)) {
+        bitwise_and(img_segment, h_mask.get_mask(segment), img_segment);
+    } else if ((1 << segment) & (TOP_LEFT_BIT | TOP_RIGHT_BIT | BOTTOM_LEFT_BIT | BOTTOM_RIGHT_BIT)) {
+        bitwise_and(img_segment, v_mask.get_mask(segment), img_segment);
+    }
+    return total_pixels - cv::countNonZero(img_segment);
 }

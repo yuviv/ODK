@@ -1,29 +1,31 @@
 #include <iostream>
-#include "driver.h"
-#include "NonMLClassifier.h"
 #include <cstring>
 #include <sstream>
 #include <cmath>
 
+#include "driver.h"
+#include "NonMLClassifier.h"
+#include "NaiveBayes.h"
+
 int main(int argc, char *argv[]) {
     int mw, mh, pt;
 
-    if (argc != 4) {
-        std::cerr << "Use: ./driver [mask_width] [mask_height] [pixel_thresh]" << std::endl;
+    if (argc != 6) {
+        std::cerr << "Use: ./driver [train_dir] [classify_dir] [mask_width] [mask_height] [pixel_thresh]" << std::endl;
         return -1;
     } else {
         int val;
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 3; i <= 5; i++) {
             std::istringstream iss(argv[i]);
             if (iss >> val) {
                 switch(i) {
-                case 1:
+                case 3:
                     mw = val;
                     break;
-                case 2:
+                case 4:
                     mh = val;
                     break;
-                case 3:
+                case 5:
                     pt = val;
                     break;
                 default:
@@ -33,9 +35,16 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    NonMLClassifier classifier("./natural_numbers/", &filter, &ellipse_mask, &thresh, 20, 30, mw, mh, pt);
+    std::cout << "Classify directory: " << c_dir << std::endl;
+
+    NonMLClassifier classifier(c_dir, &filter, &diamond_mask, &thresh, 20, 30, mw, mh, pt);
     classifier.classify();
     classifier.print_results();
+
+    NaiveBayes naive_bayes(t_dir, c_dir, &filter, &diamond_mask, &thresh, 20, 30, mw, mh);
+    naive_bayes.train();
+    naive_bayes.classify();
+    naive_bayes.print_results();
 }
 
 int filter(const struct dirent *ent) {

@@ -41,8 +41,9 @@ protected:
     void find_roi(int segment, int iw, int ih, int mw, int mh);
     int predict_number(const char guess);
     void pre_process(cv::Mat& img);
+    virtual int c_process(const cv::Mat& img) {}
+    int get_black_pixels(const cv::Mat& img, int segment);
 public:
-    virtual char c_process(const cv::Mat& img) {}
     void classify(void);
     void print_results(void);
     void print_rois(void);
