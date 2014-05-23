@@ -169,10 +169,10 @@ bool trainPCA(const char *trainFile, Ptr<BubblePCA> classifier) {
 		cout << "Training on " << total << " files" << endl;
 	}
 
-	Size exampleSize = Size(10, 10); //fix this & maybe alignment errors?
+	Size exampleSize = Size(30, 30); //fix this & maybe alignment errors?
 	int eigenValue = filepaths.size() - 1;	//should this be number of eigenvectors? argc - 1? use 13? use 9?
-	int x = 15;
-	int y = 15;
+	int x = 5;
+	int y = 5;
 	bool success = classifier->train_classifier(filepaths, exampleSize, x, y, eigenValue, false);
 	cout << "training finished" << endl;
 	return success;
@@ -180,7 +180,7 @@ bool trainPCA(const char *trainFile, Ptr<BubblePCA> classifier) {
 
 int main() {
 	vector<string> filePaths;
-	int res = CrawlFileTree("filled/f3", filePaths);
+	int res = CrawlFileTree("filled/f12", filePaths);
 	if (res == 0) {
 		cerr << "ERROR: bad directory" << endl;
 	}
@@ -213,9 +213,9 @@ int main() {
 
 		// PCA
 		if (USE_PCA) {
-			Rect r(15, 15, 10, 10);
+			Rect r(5, 5, 30, 30);
 			img_gray = img_gray(r);
-			Point loc(5, 5);
+			Point loc(15, 15);
 			string predicted_class = pca->classify_item(img_gray, loc);
 			if (predicted_class.compare("filled") == 0) {
 				correct++;

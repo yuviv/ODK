@@ -1,53 +1,21 @@
 USING PCA ON training.txt, ROI = (5, 5, 30, 30)
 
-TOTAL 285 CORRECT OUT OF 369 SAMPLES (77.2 %)
+TOTAL 525 CORRECT OUT OF 533 SAMPLES (98.5 %)
 
 EMPTY
-predicted 41 correct out of 41 samples
+predicted 62 correct out of 62 samples
 
 FILLED F1
-predicted 27 correct out of 41 samples
-
-FILLED F2
-predicted 29 correct out of 41 samples
-
-FILLED F3
-predicted 34 correct out of 41 samples
-
-FILLED F4
-predicted 22 correct out of 41 samples
-
-FILLED F5
-predicted 36 correct out of 41 samples
-
-FILLED F6
-predicted 37 correct out of 41 samples
-
-FILLED F7
-predicted 37 correct out of 41 samples
-
-FILLED F8
-predicted 22 correct out of 41 samples
-
-
-ROI = (5, 5, 30, 30) fixed alignment issues
-
-TOTAL 352 CORRECT OUT OF 369 SAMPLES (95.4 %)
-
-EMPTY
-predicted 41 correct out of 41 samples
-
-FILLED F1
-predicted 39 correct out of 41 samples
-
-FILLED F2
 predicted 40 correct out of 41 samples
 
+FILLED F2
+predicted 41 correct out of 41 samples
+
 FILLED F3
 predicted 41 correct out of 41 samples
 
 FILLED F4
-predicted 38 correct out of 41 samples
+predicted 39 correct out of 41 samples
 
 FILLED F5
 predicted 41 correct out of 41 samples
@@ -59,4 +27,16 @@ FILLED F7
 predicted 41 correct out of 41 samples
 
 FILLED F8
-predicted 30 correct out of 41 samples
+predicted 39 correct out of 41 samples
+
+FILLED F9
+predicted 41 correct out of 41 samples
+
+FILLED F10
+predicted 38 correct out of 41 samples
+
+FILLED F11
+predicted 41 correct out of 41 samples
+
+FILLED F12
+predicted 20 correct out of 20 samples

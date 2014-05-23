@@ -1,6 +1,6 @@
 USED PIXEL_THRESHOLD = 50, ROI = (15, 15, 10, 10)
 
-TOTAL 423 CORRECT OUT OF 441 SAMPLES (95.9 %)
+TOTAL 628 CORRECT OUT OF 637 SAMPLES (98.6 %)
 
 EMPTY
 average pixels: 75.2653
@@ -18,13 +18,13 @@ FILLED F2
 average pixels: 23.3265
 min pixels: 0
 max pixels: 87
-predicted 44 correct out of 49 samples
+predicted 47 correct out of 49 samples
 
 FILLED F3
 average pixels: 18.1837
 min pixels: 0
 max pixels: 50
-predicted 48 correct out of 49 samples
+predicted 49 correct out of 49 samples
 
 FILLED F4
 average pixels: 16.4286
@@ -42,16 +42,40 @@ FILLED F6
 average pixels: 22.1429
 min pixels: 0
 max pixels: 63
-predicted 46 correct out of 49 samples
+predicted 48 correct out of 49 samples
 
 FILLED F7
 average pixels: 26.6122
 min pixels: 0
 max pixels: 66
-predicted 41 correct out of 49 samples
+predicted 44 correct out of 49 samples
 
 FILLED F8
 average pixels: 4.5102
 min pixels: 0
 max pixels: 22
+predicted 49 correct out of 49 samples
+
+FILLED F9
+average pixels: 14.3673
+min pixels: 0
+max pixels: 41
+predicted 49 correct out of 49 samples
+
+FILLED F10
+average pixels: 5.38776
+min pixels: 0
+max pixels: 25
+predicted 49 correct out of 49 samples
+
+FILLED F11
+average pixels: 11.3061
+min pixels: 0
+max pixels: 28
+predicted 49 correct out of 49 samples
+
+FILLED F12
+average pixels: 13.3469
+min pixels: 0
+max pixels: 39
 predicted 49 correct out of 49 samples

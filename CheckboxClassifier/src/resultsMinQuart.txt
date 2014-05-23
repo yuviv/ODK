@@ -1,12 +1,12 @@
 USING MIN QUARTER, PIXEL_THRESHOLD = 90, ROI = (5, 5, 30, 30)
 
-TOTAL 149 CORRECT OUT OF 369 SAMPLES (40.4 %)
+TOTAL 225 CORRECT OUT OF 533 SAMPLES (42.2 %)
 
 EMPTY
-average pixels: 134.854
+average pixels: 138.194
 min pixels: 87
 max pixels: 174
-predicted 40 correct out of 41 samples
+predicted 61 correct out of 62 samples
 
 FILLED F1
 average pixels: 107.146
@@ -56,4 +56,26 @@ min pixels: 36
 max pixels: 160
 predicted 8 correct out of 41 samples
 
+FILLED F9
+average pixels: 96.9756
+min pixels: 51
+max pixels: 152
+predicted 17 correct out of 41 samples
 
+FILLED F10
+average pixels: 120.293
+min pixels: 77
+max pixels: 151
+predicted 1 correct out of 41 samples
+
+FILLED F11
+average pixels: 109.415
+min pixels: 72
+max pixels: 154
+predicted 6 correct out of 41 samples
+
+FILLED F12
+average pixels: 104.55
+min pixels: 54
+max pixels: 147
+predicted 6 correct out of 20 samples

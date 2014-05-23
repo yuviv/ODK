@@ -186,7 +186,7 @@ bool trainPCA(const char *trainFile, Ptr<CheckboxPCA> classifier) {
 
 int main() {
 	vector<string> filePaths;
-	int res = CrawlFileTree("filled/f8", filePaths);
+	int res = CrawlFileTree("empty", filePaths);
 	if (res == 0) {
 		cerr << "ERROR: bad directory" << endl;
 	}
@@ -205,11 +205,10 @@ int main() {
 			cerr << "TRAINING DIDN'T WORK" << endl;
   }
 
+  cout << "FAILED SAMPLES:" << endl;
 	while (n--) {
 		string img_name = filePaths[n];
-		int img_class = img_name.at(6)- 0x30;
 		char guess = 0x0;
-		cout << "Processing file for " << img_class << ": " << img_name << endl;
 		Mat img = imread(img_name, CV_LOAD_IMAGE_COLOR);
 		if (img.empty()) {
 			cerr << "ERROR: could not read image " << img_name << endl;
@@ -226,9 +225,11 @@ int main() {
 			string predicted_class = pca->classify_item(img_gray, loc);
 			if (predicted_class.compare("filled") == 0) {
 				correct++;
-				cout << " FILLED" << endl;
+				//cout << " FILLED" << endl;
+				cout << img_name << endl;
 			} else {
-				cout << "  EMPTY -- FAILED" << endl;
+				//cout << img_name << endl;
+				//cout << "  EMPTY -- FAILED" << endl;
 			}
 		} else {
 			// THRESHOLDING
