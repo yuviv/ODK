@@ -149,12 +149,15 @@ int CrawlFileTree(char* rootdir, vector<string> &filenames) {
 	return 1;
 }
 
+// Fills the output vector filenames with the all the files in rootdir
+// Returns 1 on success, 0 on failure
 int CrawlFileTree(string rootdir, vector<string> &filenames) {
 	vector<char> writable(rootdir.begin(), rootdir.end());
 	writable.push_back('\0');
 	return CrawlFileTree(&writable[0], filenames);
 }
 
+// Train the PCA_SVM classifier on the listed training images in trainFile (.txt)
 bool trainPCA(const char *trainFile, Ptr<BubblePCA> classifier) {
 	vector<string> filepaths;
 	ifstream train_set;
@@ -169,8 +172,8 @@ bool trainPCA(const char *trainFile, Ptr<BubblePCA> classifier) {
 		cout << "Training on " << total << " files" << endl;
 	}
 
-	Size exampleSize = Size(30, 30); //fix this & maybe alignment errors?
-	int eigenValue = filepaths.size() - 1;	//should this be number of eigenvectors? argc - 1? use 13? use 9?
+	Size exampleSize = Size(30, 30);
+	int eigenValue = filepaths.size() - 1;
 	int x = 5;
 	int y = 5;
 	bool success = classifier->train_classifier(filepaths, exampleSize, x, y, eigenValue, false);
@@ -178,31 +181,48 @@ bool trainPCA(const char *trainFile, Ptr<BubblePCA> classifier) {
 	return success;
 }
 
-int main() {
+// Predict this images classification using pixel thresholding
+string thresholdPredict(Mat &img_gray) {
+	Mat img_bin(img_gray.size(), img_gray.type());
+	threshold(img_gray, img_bin, 160, 255, THRESH_BINARY);
+	int pixels = countNonZero(img_bin);
+	if (pixels < PIXEL_THRESHOLD) {
+		return "filled";
+	} else {
+		return "empty";
+	}
+}
+
+int main(int argc, char **argv) {
+	// Get file paths of images to classify
 	vector<string> filePaths;
-	int res = CrawlFileTree("filled/f12", filePaths);
+	string rootDir = "filled/more";
+	if (argc == 2)
+		rootDir = string(argv[1]);
+	int res = CrawlFileTree("filled/f1", filePaths);
 	if (res == 0) {
 		cerr << "ERROR: bad directory" << endl;
 	}
 
-	int n = filePaths.size() - 2;
-  int sumPixels = 0;
-  int min = INT_MAX;
-  int max = INT_MIN;
-
+	int n = filePaths.size() - 1;
   int count = 0;
   int correct = 0;
 
+  // Train classifier
   Ptr<BubblePCA> pca = Ptr<BubblePCA>(new BubblePCA);
   if (USE_PCA) {
+  	cout << "USING PCA CLASSIFICATION" << endl;
 		bool trained = trainPCA("training.txt", pca);
 		if (!trained)
 			cerr << "TRAINING DIDN'T WORK" << endl;
+  } else {
+  	cout << "USING THRESHOLDING CLASSIFICATION" << endl;
   }
 
+  cout << "FAILED SAMPLES:" << endl;
 	while (n--) {
 		string img_name = filePaths[n];
-		cout << "Processing file for : " << img_name << endl;
+		string classification = img_name.substr(0, img_name.find_first_of("/"));
 		Mat img = imread(img_name, CV_LOAD_IMAGE_COLOR);
 		if (img.empty()) {
 			cerr << "ERROR: could not read image " << img_name << endl;
@@ -211,43 +231,30 @@ int main() {
 		Mat img_gray(img.size(), CV_8U);
 		cvtColor(img, img_gray, CV_BGR2GRAY);
 
-		// PCA
+		// Predict classification
+		string predicted_class;
 		if (USE_PCA) {
+			// PCA
 			Rect r(5, 5, 30, 30);
 			img_gray = img_gray(r);
 			Point loc(15, 15);
-			string predicted_class = pca->classify_item(img_gray, loc);
-			if (predicted_class.compare("filled") == 0) {
-				correct++;
-				cout << " FILLED" << endl;
-			} else {
-				cout << "  EMPTY -- FAILED" << endl;
-			}
+			predicted_class = pca->classify_item(img_gray, loc);
 		} else {
 			// THRESHOLDING
 			Rect r(15, 15, 10, 10);
 			img_gray = img_gray(r);
-			Mat img_bin(img_gray.size(), img_gray.type());
-			threshold(img_gray, img_bin, 160, 255, THRESH_BINARY);
-			int pixels = countNonZero(img_bin);
-			cout << pixels << " pixels filled" << endl;
+			predicted_class = thresholdPredict(img_gray);
+		}
 
-			if (pixels < PIXEL_THRESHOLD) {
-				cout << "  FILLED" << endl;
-				correct++;
-			} else {
-				cout << "  EMPTY -- FAILED" << endl;
-			}
-			sumPixels += pixels;
-			min = std::min(min, pixels);
-			max = std::max(max, pixels);
+		// Update correct and print out failed samples
+		if (predicted_class.compare(classification) == 0) {
+			correct++;
+		} else {
+			cout << img_name << endl;
+			cout << "  Predicted " << predicted_class;
+			cout << ", Should be " << classification << endl;
 		}
 	}
-
-	double average = (double) sumPixels / (filePaths.size() - 2);
-	cout << "average pixels: " << average << endl;
-	cout << "min pixels: " << min << endl;
-	cout << "max pixels: " << max << endl;
 
 	cout << "predicted " << correct << " correct out of " << count << " samples" << endl;
 

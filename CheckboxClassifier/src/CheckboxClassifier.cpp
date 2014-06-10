@@ -148,12 +148,15 @@ int CrawlFileTree(char* rootdir, vector<string> &filenames) {
 	return 1;
 }
 
+// Fills the output vector filenames with the all the files in rootdir
+// Returns 1 on success, 0 on failure
 int CrawlFileTree(string rootdir, vector<string> &filenames) {
 	vector<char> writable(rootdir.begin(), rootdir.end());
 	writable.push_back('\0');
 	return CrawlFileTree(&writable[0], filenames);
 }
 
+// Count the number of pixels in the specified roi in img
 int countSegment(Mat img, int x, int y, int width, int height) {
   Rect r(x, y, width, height);
   Mat cropped = img(r);
@@ -161,6 +164,7 @@ int countSegment(Mat img, int x, int y, int width, int height) {
   return pixels;
 }
 
+// Train the PCA_SVM classifier on the listed training images in trainFile (.txt)
 bool trainPCA(const char *trainFile, Ptr<CheckboxPCA> classifier) {
 	vector<string> filepaths;
 	ifstream train_set;
@@ -175,40 +179,68 @@ bool trainPCA(const char *trainFile, Ptr<CheckboxPCA> classifier) {
 		cout << "Training on " << total << " files" << endl;
 	}
 
-	Size exampleSize = Size(30, 30); //fix this & maybe alignment errors?
+	Size exampleSize = Size(30, 30);
 	int x = 5;
 	int y = 5;
-	int eigenValue = filepaths.size() - 1;	//should this be number of eigenvectors? argc - 1? use 13? use 9?
+	int eigenValue = filepaths.size() - 1;
 	bool success = classifier->train_classifier(filepaths, exampleSize, x, y, eigenValue, false);
 	cout << "training finished" << endl;
 	return success;
 }
 
-int main() {
+// Predict this images classification using pixel thresholding on the most filled quarter
+string thresholdPredict(Mat &img_gray) {
+	Mat img_bin(img_gray.size(), img_gray.type());
+	threshold(img_gray, img_bin, 160, 255, THRESH_BINARY);
+
+	int currMin = countSegment(img_bin, 0, 0, 15, 15);
+	int currMax = currMin;
+	int pixels = countSegment(img_bin, 15, 0, 15, 15);
+	currMin = min(currMin, pixels);
+	currMax = max(currMax, pixels);
+	pixels = countSegment(img_bin, 0, 15, 15, 15);
+	currMin = min(currMin, pixels);
+	currMax = max(currMax, pixels);
+	pixels = countSegment(img_bin, 15, 15, 15, 15);
+	currMin = min(currMin, pixels);
+	currMax = max(currMax, pixels);
+
+	if (currMin < PIXEL_THRESHOLD)
+		return "filled";
+	else
+		return "empty";
+}
+
+int main(int argc, char **argv) {
+	// Get file paths of images to classify
 	vector<string> filePaths;
-	int res = CrawlFileTree("empty", filePaths);
+	string rootDir = "filled/more";
+	if (argc == 2)
+		rootDir = string(argv[1]);
+	int res = CrawlFileTree(rootDir, filePaths);
 	if (res == 0) {
 		cerr << "ERROR: bad directory" << endl;
 	}
 
-	int n = filePaths.size() - 2;
-  int sumPixels = 0;
-  int overallMin = INT_MAX;
-  int overallMax = INT_MIN;
+	int n = filePaths.size() - 1;
   int correct = 0;
   int count = 0;
 
+  // Train classifier
   Ptr<CheckboxPCA> pca = Ptr<CheckboxPCA>(new CheckboxPCA);
   if (USE_PCA) {
+  	cout << "USING PCA CLASSIFICATION" << endl;
 		bool trained = trainPCA("training.txt", pca);
 		if (!trained)
 			cerr << "TRAINING DIDN'T WORK" << endl;
+  } else {
+  	cout << "USING THRESHOLDING CLASSIFICATION" << endl;
   }
 
   cout << "FAILED SAMPLES:" << endl;
 	while (n--) {
 		string img_name = filePaths[n];
-		char guess = 0x0;
+		string classification = img_name.substr(0, img_name.find_first_of("/"));
 		Mat img = imread(img_name, CV_LOAD_IMAGE_COLOR);
 		if (img.empty()) {
 			cerr << "ERROR: could not read image " << img_name << endl;
@@ -219,58 +251,26 @@ int main() {
 		Rect r(5, 5, 30, 30);
 		img_gray = img_gray(r);
 
-		// PCA
+		string predicted_class;
+		// Predict classification
 		if (USE_PCA) {
+			// PCA
 			Point loc(15, 15);
-			string predicted_class = pca->classify_item(img_gray, loc);
-			if (predicted_class.compare("filled") == 0) {
-				correct++;
-				//cout << " FILLED" << endl;
-				cout << img_name << endl;
-			} else {
-				//cout << img_name << endl;
-				//cout << "  EMPTY -- FAILED" << endl;
-			}
+			predicted_class = pca->classify_item(img_gray, loc);
 		} else {
 			// THRESHOLDING
-			Mat img_bin(img_gray.size(), img_gray.type());
-			threshold(img_gray, img_bin, 160, 255, THRESH_BINARY);
-			/*string bin_name = string("empty/bin/") + img_name.substr(6);
-			imwrite(bin_name, img_bin);*/
+			predicted_class = thresholdPredict(img_gray);
+		}
 
-			//int pixels = countNonZero(img_bin);
-
-			int currMin = countSegment(img_bin, 0, 0, 15, 15);
-			int currMax = currMin;
-			int pixels = countSegment(img_bin, 15, 0, 15, 15);
-			currMin = min(currMin, pixels);
-			currMax = max(currMax, pixels);
-			pixels = countSegment(img_bin, 0, 15, 15, 15);
-			currMin = min(currMin, pixels);
-			currMax = max(currMax, pixels);
-			pixels = countSegment(img_bin, 15, 15, 15, 15);
-			currMin = min(currMin, pixels);
-			currMax = max(currMax, pixels);
-
-			pixels = currMin;
-			sumPixels += pixels;
-			overallMin = min(overallMin, pixels);
-			overallMax = max(overallMax, pixels);
-			cout << "  " << pixels << " pixels filled" << endl;
-
-			if (pixels < PIXEL_THRESHOLD) {
-				cout << "  FILLED" << endl;
-				correct++;
-			} else {
-				cout << "  EMPTY -- FAILED" << endl;
-			}
+		// Update correct count and print out failed samples
+		if (predicted_class.compare(classification) == 0) {
+			correct++;
+		} else {
+			cout << img_name << endl;
+			cout << "  Predicted " << predicted_class;
+			cout << ", Should be " << classification << endl;
 		}
 	}
-
-	double average = (double) sumPixels / (filePaths.size() - 2);
-	cout << "average pixels: " << average << endl;
-	cout << "min pixels: " << overallMin << endl;
-	cout << "max pixels: " << overallMax << endl;
 
 	cout << "predicted " << correct << " correct out of " << count << " samples" << endl;
 

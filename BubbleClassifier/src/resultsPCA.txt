@@ -1,9 +1,9 @@
 USED PCA on training.txt, ROI = (5, 5, 30, 30)
 
-TOTAL 631 CORRECT OUT OF 637 SAMPLES (99.1 %)
+TOTAL 777 CORRECT OUT OF 785 SAMPLES (98.9 %)
 
 EMPTY
-predicted 49 correct out of 49 samples
+predicted 119 correct out of 119 samples
 
 FILLED F1
 predicted 49 correct out of 49 samples
@@ -40,3 +40,6 @@ predicted 49 correct out of 49 samples
 
 FILLED F12
 predicted 47 correct out of 49 samples
+
+FILLED MORE
+predicted 76 correct out of 78 samples
