@@ -125,6 +125,7 @@ void NumberClassifier::classify(void) {
             std::cerr << "Image not loaded" << std::endl;
         else {
             pre_process(img);
+            imwrite(std::string("./big_bin/") + img_name, img);
             int guess = c_process(img);
             if (img_num == guess)
                 correct.at(img_num)++;
