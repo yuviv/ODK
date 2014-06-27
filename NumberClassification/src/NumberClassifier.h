@@ -42,7 +42,8 @@ protected:
     int predict_number(const char guess);
     void pre_process(cv::Mat& img);
     virtual int c_process(const cv::Mat& img) {}
-    int get_black_pixels(const cv::Mat& img, int segment);
+    int get_black_pixels(const cv::Mat& img, int segment); 
+    void crop_img(cv::Mat& img, int target_w, int target_h);
 public:
     void classify(void);
     void print_results(void);

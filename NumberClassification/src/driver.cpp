@@ -38,11 +38,11 @@ int main(int argc, char *argv[]) {
     std::string c_dir(argv[1]);
     std::string t_dir(argv[2]);
 
-    NonMLClassifier classifier(c_dir, &filter, &rect_mask, &thresh, 40, 60, mw, mh, pt);
-    classifier.classify();
-    classifier.print_results();
+    //NonMLClassifier classifier(c_dir, &filter, &rect_mask, &thresh, 40, 60, mw, mh, pt);
+    //classifier.classify();
+    //classifier.print_results();
 
-    NaiveBayes naive_bayes(c_dir, t_dir, &filter, &rect_mask, &thresh, 20, 30, mw, mh);
+    NaiveBayes naive_bayes(c_dir, t_dir, &filter, &rect_mask, &thresh, 40, 60, mw, mh);
     naive_bayes.train();
     naive_bayes.classify();
     naive_bayes.print_results();

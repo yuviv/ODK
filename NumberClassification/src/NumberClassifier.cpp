@@ -89,11 +89,57 @@ void NumberClassifier::print_rois(void) {
     }
 }
 
+void NumberClassifier::crop_img(cv::Mat& img, int target_w, int target_h) {
+  int max_x_off = 0;
+  int max_y_off = 0;
+  int dot_w = target_w / 2;
+  int dot_h = 2 * target_h / 3;
+  int min_px = 25;
+  int img_w = img.cols;
+  int img_h = img.rows;
+  int total_px;
+  cv::Rect r;
+  for (int i = 0; i < img_w - dot_w - 2; i++) {
+    for (int j = 0; j < img_h - dot_h - 2; j++) {
+      total_px = 0;
+      r = cv::Rect(i, j, 2, 2);
+      total_px += cv::countNonZero(img(r));
+      r = cv::Rect(i + dot_w, j, 2, 2);
+      total_px += cv::countNonZero(img(r));
+      r = cv::Rect(i, j + dot_h / 2, 2, 2);
+      total_px += cv::countNonZero(img(r));
+      r = cv::Rect(i + dot_w, j + dot_h / 2, 2, 2);
+      total_px += cv::countNonZero(img(r));
+      r = cv::Rect(i, j + dot_h, 2, 2);
+      total_px += cv::countNonZero(img(r));
+      r = cv::Rect(i + dot_w, j + dot_h, 2, 2);
+      total_px += cv::countNonZero(img(r));
+      if (total_px < min_px) {
+        min_px = total_px;
+        max_x_off = i - target_w / 4 + 1;
+        max_y_off = j - target_h / 6 + 1;
+      }
+    }
+  }
+  if (!(max_x_off + target_w < img_w)) {
+    target_w -= ((max_x_off + target_w) - img_w + 1);
+  } else if (max_x_off < 0) {
+    target_w += max_x_off;
+    max_x_off = 0;
+  }
+  if (!(max_y_off + target_h < img_h)) {
+    target_h -= ((max_y_off + target_h) - img_h + 1);
+  } else if (max_y_off < 0) {
+    target_h += max_y_off;
+    max_y_off = 0;
+  }
+  img = img(cv::Rect(max_x_off, max_y_off, target_w, target_h));
+}
+
 void NumberClassifier::pre_process(cv::Mat& img) {
     cv::Mat img_gray = img;
     if (img.channels() > 1)
         cv::cvtColor(img, img_gray, CV_BGR2GRAY);
-    cv::resize(img_gray, img_gray, cv::Size(img_w,img_h), 0, 0, cv::INTER_AREA);
     std::vector<cv::Mat> channels;
     split(img, channels);
     int mean = (int)cv::mean(channels[0])[0];
@@ -101,6 +147,8 @@ void NumberClassifier::pre_process(cv::Mat& img) {
     cv::Mat img_bin;
     cv::threshold(img_gray, img_bin, thresh, 255, cv::THRESH_BINARY);
     img = img_bin;
+    crop_img(img, img_w, img_h);
+    cv::resize(img, img, cv::Size(img_w,img_h), 0, 0, cv::INTER_AREA);
 }
 
 void NumberClassifier::print_results(void) {
@@ -125,7 +173,6 @@ void NumberClassifier::classify(void) {
             std::cerr << "Image not loaded" << std::endl;
         else {
             pre_process(img);
-            imwrite(std::string("./big_bin/") + img_name, img);
             int guess = c_process(img);
             if (img_num == guess)
                 correct.at(img_num)++;
