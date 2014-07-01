@@ -2,6 +2,9 @@
 
 #include "MLClassifier.h"
 
+/* This function iterates through a training directory and calls
+ * t_process() on each image in the directory. Can be used by any
+ * ML classifier as a generic train function */
 void MLClassifier::train(void) {
     int n = t_numbers;
     if (n < 0) {

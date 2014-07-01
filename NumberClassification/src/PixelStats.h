@@ -10,6 +10,9 @@ typedef struct seg_stats_st {
     float v;
 } seg_stats;
 
+/* This class stores ten different sets of seven mean/variance statistics; one for each
+ * segment of each number. The statistics are updated by providing a pixel count along
+ * with a number and segment number */
 class PixelStats
 {
 protected:

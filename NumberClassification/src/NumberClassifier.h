@@ -11,21 +11,25 @@
 typedef int (*filter_func)(const struct dirent *ent);
 typedef int (*thresh_func)(int mean);
 
+/* This a virtual class that performs all the basic preprocessing
+ * that the other derived classes use. It also does not provide
+ * any form of training; this was done to support classifiers that
+ * do not learn (such as the threshold example). */
 class NumberClassifier
 {
 protected:
-    struct dirent **c_list;
-    const std::string c_dir;
-    int c_numbers;
-    int img_w;
-    int img_h;
-    SegmentMask h_mask;
-    SegmentMask v_mask;
-    const thresh_func t_func;
-    std::vector<cv::Rect> rois;
-    std::vector<int> guesses;
-    std::vector<int> correct;
-    const int total_pixels;
+    struct dirent **c_list;     // list of image names
+    const std::string c_dir;    // name of classify directory
+    int c_numbers;              // number of images to classify
+    int img_w;                  // images resized to this width
+    int img_h;                  // images resized to this height
+    SegmentMask h_mask;         // defines a mask shape for the vertical segments
+    SegmentMask v_mask;         // defines a mask shape for the horiz. segments
+    const thresh_func t_func;   // calculates the pixel intensity threshold
+    std::vector<cv::Rect> rois; // rectangles for the segment locations
+    std::vector<int> guesses;   // keeps track of guesses
+    std::vector<int> correct;   // keeps track of correct guesses
+    const int total_pixels;     // total pixels in each segment
     NumberClassifier (const std::string classify_dir, filter_func ff,
                       mask_func mf, thresh_func tf, int iw, int ih,
                       int mw, int mh) :

@@ -2,15 +2,18 @@
 #define _ML_CLASSIFIER_H_
 
 #include "NumberClassifier.h"
-#include "PixelStats.h"
 
+/* This abstract class extends the generic NumberClassifier by providing a
+ * train() function and a virtual t_process() function. The train()
+ * function simply iterates through a directory, passing each image
+ * it finds to the t_process() function. The t_process() function is
+ * implementation-specific. */
 class MLClassifier : public NumberClassifier
 {
 protected:
     struct dirent **t_list;
     const std::string t_dir;
     int t_numbers;
-    PixelStats stats;
     virtual void t_process(const cv::Mat& img, int img_num) {}
 public:
     MLClassifier(const std::string classify_dir,

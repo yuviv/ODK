@@ -12,6 +12,7 @@
 
 typedef int (*mask_func)(int x, int y, int w, int h, int dir);
 
+/* This class computes a mask given a mask function */
 class SegmentMask {
   protected:
     mask_func func;
@@ -21,10 +22,11 @@ class SegmentMask {
     SegmentMask(const mask_func mf, int w, int h, int dir) : func(mf), mask(h, w, CV_8U, cv::Scalar::all(0)) {
       int px;
       mask_area = 0;
+      // iterates through the pixels in the mask, setting each to the output value of
+      // the mask function at that coordinate
       for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++) {
-          px = (*func)(j, i, w, h, dir);
-          mask.at<uchar>(i, j, 0) = px;
+          mask.at<uchar>(i, j, 0) = (*func)(j,i,w,h,dir);
           if (px)
             mask_area++;
         }

@@ -5,6 +5,10 @@
 
 #include "NumberClassifier.h"
 
+/* Calculates the location and dimensions of each segment's rectangular
+ * boundary based on the size of the image and the size of the segments.
+ * Assumes that the image is aligned, and centers each segment on the midpoint
+ * of the imaginary line between dots */
 void NumberClassifier::find_roi(int segment, int iw, int ih, int mw, int mh) {
     int x, y,w,h;
     w = mh;
@@ -48,6 +52,7 @@ void NumberClassifier::find_roi(int segment, int iw, int ih, int mw, int mh) {
     rois.at(segment) = cv::Rect(x, y, w, h);
 }
 
+/* Used to map the output of c_process() to a number */
 int NumberClassifier::predict_number(const char guess) {
     switch (guess) {
     case ZERO_SEGMENTS:
@@ -81,6 +86,7 @@ int NumberClassifier::predict_number(const char guess) {
     }
 }
 
+/* Prints out the segment locations and boundaries */
 void NumberClassifier::print_rois(void) {
     for (int i = 0; i < NUM_SEGMENTS; i++) {
         std::cout << "ROI #" << i << std::endl;
@@ -89,6 +95,7 @@ void NumberClassifier::print_rois(void) {
     }
 }
 
+/* Searches for the six dots and uses their location to crop and align the image */
 void NumberClassifier::crop_img(cv::Mat& img, int target_w, int target_h) {
   int max_x_off = 0;
   int max_y_off = 0;
@@ -136,6 +143,7 @@ void NumberClassifier::crop_img(cv::Mat& img, int target_w, int target_h) {
   img = img(cv::Rect(max_x_off, max_y_off, target_w, target_h));
 }
 
+/* Converts the image to black/white, crops it, resizes it */
 void NumberClassifier::pre_process(cv::Mat& img) {
     cv::Mat img_gray = img;
     if (img.channels() > 1)
@@ -151,6 +159,7 @@ void NumberClassifier::pre_process(cv::Mat& img) {
     cv::resize(img, img, cv::Size(img_w,img_h), 0, 0, cv::INTER_AREA);
 }
 
+/* Prints the results of the classification */
 void NumberClassifier::print_results(void) {
     int total_correct = 0;
     for (int i = 0; i < 10; i++) {
@@ -160,6 +169,8 @@ void NumberClassifier::print_results(void) {
     std::cout << "Total: " << total_correct << "/" << c_numbers << std::endl;
 }
 
+/* Iterates through the classification directory, passing each image to the
+ * c_process() function which performs the actual classification */
 void NumberClassifier::classify(void) {
     int n = c_numbers;
     if (n < 0) {
@@ -183,6 +194,7 @@ void NumberClassifier::classify(void) {
     delete c_list;
 }
 
+/* Counts the number of black pixels in the given segment of the image */
 int NumberClassifier::get_black_pixels(const cv::Mat& img, int segment) {
     cv::Mat img_segment = img(rois.at(segment));
     if ((1 << segment) & (TOP_BIT | MIDDLE_BIT | BOTTOM_BIT)) {

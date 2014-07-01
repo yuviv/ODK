@@ -1,8 +1,10 @@
 #ifndef _NUMBER_CLASSIFICATION_H_
 #define _NUMBER_CLASSIFICATION_H_
 
+// Number of segments per image
 #define NUM_SEGMENTS 7
 
+// ID number for each segment
 #define TOP 0x0
 #define MIDDLE 0x1
 #define BOTTOM 0x2
@@ -11,6 +13,7 @@
 #define BOTTOM_LEFT 0x5
 #define BOTTOM_RIGHT 0x6
 
+// Bitfield representation of each segment
 #define TOP_BIT (1 << TOP)
 #define MIDDLE_BIT (1 << MIDDLE)
 #define BOTTOM_BIT (1 << BOTTOM)
@@ -19,6 +22,7 @@
 #define BOTTOM_LEFT_BIT (1 << BOTTOM_LEFT)
 #define BOTTOM_RIGHT_BIT (1 << BOTTOM_RIGHT)
 
+// Segments that make up each number
 #define ZERO_SEGMENTS ( TOP_BIT | BOTTOM_BIT | TOP_LEFT_BIT | TOP_RIGHT_BIT | BOTTOM_LEFT_BIT | BOTTOM_RIGHT_BIT )
 #define ONE_SEGMENTS_LEFT ( TOP_LEFT_BIT | BOTTOM_LEFT_BIT )
 #define ONE_SEGMENTS_RIGHT ( TOP_RIGHT_BIT | BOTTOM_RIGHT_BIT )
