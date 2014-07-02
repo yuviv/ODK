@@ -4,4 +4,3 @@ segments/*
 Debug/*
 .Thumbs.db
 driver
-CMakeLists*

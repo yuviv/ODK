@@ -77,3 +77,23 @@ a rectangle of the desired image size (in the standard case 60x40) around those 
 not-so-rare case that a sliver of the image is cut out of the original image, then the crop
 function crops it to be smaller than needed, and it is then stretched to the desired size
 by a subsequent call to cv::resize().
+
+NOTES ABOUT NAIVE BAYES IMPLEMENTATION
+
+Naive Bayes works by measuring a bunch of features, assuming the features are independent 
+events, and calculating the probability that a given example belongs to a class by 
+multiplying the probabilities of each feature given the measured probabilities of the
+features in the class. For example, when trying to train a "0" model, we take a bunch
+of handwritten zeros, measure the total mean and variance of the number of black pixels
+in each segment of those test examples, and end up with seven different normal distributions.
+We replicate this for the numbers 1-9. If we want to use the training data to classify an
+image, we need to calculate the probability that each segment came from each of the ten
+possible numbers. We multiply the probabilities that the segments came from a 0, then the
+probabilities that the segments came from a 1, etc. These probability calculations are
+simply done by calculating f(x, mu, s), where x is the number of black pixels in a given 
+segment, mu is the measured mean number of black pixels in that segment of that number, s 
+is the standard deviation, and f is the probability density function for the normal
+distribution. Once all seven probailities are computed for a given number, we multiply them
+together (we assume that each is independent of the others, that is the magic of Naive
+Bayes). After doing this for all ten numbers, we have ten different probailities we can
+compare, and we choose number that yielded the largest probability.

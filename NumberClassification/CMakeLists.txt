@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( NumberClassification )
+find_package( OpenCV REQUIRED )
+add_executable( driver src/NumberClassifier.cpp src/NonMLClassifier.cpp src/MLClassifier.cpp src/PixelStats.cpp src/NaiveBayes.cpp src/driver.cpp )
+target_link_libraries( driver ${OpenCV_LIBS} )
