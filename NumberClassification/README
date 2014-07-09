@@ -1,6 +1,13 @@
 README
 Matt Dorsett
 
+COMPILATION:
+
+Make sure your CMakeLists.txt file contains all your source files. Then, run 'cmake'; this will generate
+a Makefile. After running 'cmake' you won't have to run it again, unless you add more source files. To
+compile, just run 'make' in the same directory as CMakeLists.txt. Run this whenever you modify your 
+source files and wish to recompile.
+
 CLASSES/FILES:
 
 Defines:
@@ -97,3 +104,10 @@ distribution. Once all seven probailities are computed for a given number, we mu
 together (we assume that each is independent of the others, that is the magic of Naive
 Bayes). After doing this for all ten numbers, we have ten different probailities we can
 compare, and we choose number that yielded the largest probability.
+
+RECOMMENDED SEGMENT SIZES
+
+For a 60x40 image, I have found that segments that are roughly 16x16 seem to work well, but
+there are variations around there that can outperform the squares. I only experimented with
+30x20 images and found that 6x10, 8x8, etc were the best, so doubling those values is how
+I came up with 16x16, and preliminary tests backed that up.
